@@ -1,0 +1,39 @@
+<!--pages/searchList/searchGoods/searhGoods.wxml-->
+<view style="background: #F5F5F5;">
+  <view class="goods-list-top">
+    <view>
+      <input class="weui-input" value="{{searchkey}}" bindtap="golastPage" />
+      <my-icon type="sousuo" size="40" color="#666" class="icon-sousuo-box" />
+    </view>
+    <view class="goods-list-box">
+      <view wx:for="{{listTitle}}" wx:key="index" class="goods-list-title">
+        <text bindtap="clickDown" data-titleName="{{item.nameCode}}" style="{{item.nameCode == changeColor ? 'color: #800000' : ''}}">{{item.key}}</text>
+        <view wx:if="{{item.showIcon}}" style="margin-left: 6rpx" class="goods-icon-box">
+          <my-icon type="xiangshang" size="20" class="icon-box icon-up" color="{{(item.nameCode == changeColor && upColor) ? '#800000' : '#ccc'}}" bindtap="clickUp" data-titleName="{{item.nameCode}}"/>
+          <my-icon type="xiangxia" size="20" class="icon-box" color="{{(item.nameCode == changeColor && downColor) ? '#800000' : '#ccc'}}" bindtap="clickDown" data-titleName="{{item.nameCode}}"/>
+        </view>
+      </view>
+      <my-icon type="shaixuan" size="28" color="#ccc" class="icon-shaixuan-box"/>
+    </view>
+  </view>
+  <screenGoods /> 
+  <!-- <view class="goods-list-content-box">
+    <view wx:for="{{goodsList}}" wx:key="index" class="goods-list-content">
+      <view class="goods-list-img-box">
+        <cover-image class="goods-list-img" src="{{item.imgUrl}}"></cover-image>
+      </view>
+      <view class="goods-list-text">
+        <view class="goods-list-type">{{item.deliveryType}}</view>
+        <view class="goods-list-name">{{item.goodsName}}</view>
+        <view class="goods-list-price">
+          <text style="color: red;">￥{{item.mallPrice}}</text>
+          <text class="marketPrice">￥{{item.marketPrice}}</text>
+        </view>
+      </view>
+
+    </view>
+  </view>
+  <view wx:if="{{showBottom}}" class="goods-list-footer">
+    <my-icon type="sign102" size="60" color="#ccc" />就到这里吧！我可是有底线的呢！
+  </view> -->
+</view>

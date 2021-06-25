@@ -1,0 +1,107 @@
+/* pages/searchList/searchGoods/searhGoods.wxss */
+.weui-input{
+  height: 80rpx;
+  box-sizing: border-box;
+  width: 90%;
+  margin: 30rpx 0 0 30rpx;
+  background: #ddd;
+  padding-left: 20rpx;
+  position: relative;
+  padding-left: 60rpx;
+}
+.goods-list-top{
+  background: #fff;
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  border-bottom: 1rpx solid #ccc;
+}
+.icon-sousuo-box{
+  position: absolute;
+  top: 45rpx;
+  left: 40rpx;
+}
+.goods-list-box{
+  height: 100rpx; 
+  line-height: 100rpx;
+  display: flex;
+}
+.goods-list-title{
+  padding: 14rpx 20rpx;
+  display: flex;
+}
+.goods-icon-box{
+  display: flex;
+  width: 25rpx;
+  flex-wrap: wrap;
+  justify-items: center;
+}
+.icon-box{
+  width: 25rpx;
+  height: 30rpx;
+  line-height: 23rpx;
+}
+.icon-up{
+  margin-top: 10px;
+}
+.icon-shaixuan-box{
+  position: absolute;
+  top: 120rpx;
+  right: 28rpx;
+}
+.goods-list-content-box{
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 210rpx;
+}
+.goods-list-content{
+  height: 576rpx;
+  width: 372rpx;
+  border-right: 1rpx solid #ccc;
+  border-bottom: 1rpx solid #ccc;
+  background-color: #fff;
+  position: relative;
+}
+.goods-list-content:nth-of-type(2n){
+  border-right: none;
+}
+.goods-list-img-box{
+  margin: 20rpx;
+}
+.goods-list-img{
+  width: 310rpx;
+  height: 310rpx;
+  margin: auto;
+}
+.goods-list-text{
+  margin: 0 10rpx;
+}
+.goods-list-type{
+  color: #ccc;
+  font-size: 24rpx;
+  margin-bottom: 6rpx;
+}
+.goods-list-name{
+  width: 100%;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  font-size: 28rpx;
+  margin-bottom: 6rpx;
+}
+.goods-list-price{
+  position: absolute;
+  bottom: 20rpx;
+}
+.marketPrice{
+  font-size: 28rpx;
+  color: #ccc;
+  margin-left: 20rpx;
+  text-decoration: line-through;
+}
+.goods-list-footer{
+  height: 100rpx;
+  color: #ccc;
+    text-align: center;
+}

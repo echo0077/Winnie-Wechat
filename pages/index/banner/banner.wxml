@@ -1,0 +1,19 @@
+<!--pages/index/banner/banner.wxml-->
+<view>
+  <view>
+    <view>
+      <input class="weui-input" placeholder="囤货" bindtap="focuInput" data-current="{{searchKey}}"/>
+      <my-icon type="sousuo" size="40" color="#666" class="icon-sousuo-box" />
+      <my-icon type="duanxin" size="50" color="#666" class="icon-duanxin-box" />
+    </view>
+  </view>
+  <view class="swiper">
+    <swiper indicator-dots="{{true}}" autoplay="{{true}}" circular="{{true}}" class="swiper-box">
+      <block wx:for="{{dataBanner}}" wx:key="id">
+        <swiper-item>
+          <cover-image class="img-item" src="{{item.url}}"></cover-image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+</view>

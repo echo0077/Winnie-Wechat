@@ -1,0 +1,53 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/index/banner/banner",
+    "pages/classify/classify",
+    "pages/shopCart/shopCart",
+    "pages/mine/mine",
+    "pages/searchList/searchPage/searchPage",
+    "pages/searchList/searchGoods/searhGoods"
+  ],
+  "tabBar": {
+    "color": "#a9a9a9",
+    "selectedColor": "#f05b1a",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "image/tabBar/home.png",
+        "selectedIconPath": "image/tabBar/home-select.png"
+      },
+      {
+        "pagePath": "pages/classify/classify",
+        "text": "分类",
+        "iconPath": "image/tabBar/list.png",
+        "selectedIconPath": "image/tabBar/list-select.png"
+      },
+      {
+        "pagePath": "pages/shopCart/shopCart",
+        "text": "购物车",
+        "iconPath": "image/tabBar/cart.png",
+        "selectedIconPath": "image/tabBar/cart-select.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "image/tabBar/mine.png",
+        "selectedIconPath": "image/tabBar/mine-select.png"
+      }
+    ]
+  },
+  "usingComponents": {
+    "my-icon": "/components/my-icon/index"
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#a9a9a9",
+    "navigationBarTitleText": "唯妮海购",
+    "navigationBarTextStyle": "black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

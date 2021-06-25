@@ -1,0 +1,5 @@
+<!--components/my-icont/index.wxml-->
+<view 
+  class="my-class my-icon iconfont {{ type == '' ? '' : 'icon-' +  type }} {{ custom }}" 
+  style="font-size: {{ size }}rpx; {{ color ? 'color:' + color : '' }}"
+></view>

@@ -1,0 +1,4 @@
+<!--index.wxml-->
+<view>
+<banner dataBanner='{{bannerList}}' searchKey='{{searchKey}}'/>
+</view>
