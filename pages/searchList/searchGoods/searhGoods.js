@@ -18,7 +18,7 @@ Page({
     }, {
       key: '价格',
       showIcon: true,
-      nameCode: 'jg'
+      nameCode: 'sj'
     }, {
       key: '库存量',
       showIcon: true,
@@ -61,6 +61,9 @@ Page({
       pageNum: 1,
       pageSize: 20
     },
+    // 筛选数据 
+    isShowScreen: false,
+    screenData: {}
   },
 
   getData(key, name, _order) {
@@ -73,32 +76,32 @@ Page({
       data.sort = name
       data.order = _order
     }
+    let param = {
+      strCount: data.strCount,
+      endCount: data.endCount,
+      strPrice: data.strPrice,
+      endPrice: data.endPrice,
+      brandId: data.brandId,
+      countryId: data.countryId,
+      deliveryType: data.deliveryType,
+      topCategory: data.topCategory,
+      twoCategory: data.twoCategory,
+      threeCategory: data.threeCategory,
+      sort: data.sort,
+      order: data.order,
+      ifSpecOfMall: data.ifSpecOfMall,
+      couponPolicyId: data.couponPolicyId,
+      couponId: data.couponId,
+      themeId: data.themeId,
+      ifDead: data.ifDead,
+      ifNew: data.ifNew,
+      ifDisCount: data.ifDisCount,
+      pageNum: data.pageNum,
+      pageSize: data.pageSize,
+      name: this.data.searchkey
+    }
     if(name != 'sx') {
       let _list = []
-      let param = {
-        strCount: data.strCount,
-        endCount: data.endCount,
-        strPrice: data.strPrice,
-        endPrice: data.endPrice,
-        brandId: data.brandId,
-        countryId: data.countryId,
-        deliveryType: data.deliveryType,
-        topCategory: data.topCategory,
-        twoCategory: data.twoCategory,
-        threeCategory: data.threeCategory,
-        sort: data.sort,
-        order: data.order,
-        ifSpecOfMall: data.ifSpecOfMall,
-        couponPolicyId: data.couponPolicyId,
-        couponId: data.couponId,
-        themeId: data.themeId,
-        ifDead: data.ifDead,
-        ifNew: data.ifNew,
-        ifDisCount: data.ifDisCount,
-        pageNum: data.pageNum,
-        pageSize: data.pageSize
-      }
-      param.name = this.data.searchkey
       searchGoods(param).then(res => {
         let list = res.data.result.list
         list.forEach(item => {
@@ -126,8 +129,14 @@ Page({
           goodsTotal: res.data.result.total
         })
       })
+    } else {
+      getSolrGroup(param).then(res => {
+        console.log(res.data.result);
+        this.setData({
+          screenData: res.data.result
+        })
+      })
     }
-    
   },
   golastPage() {
     wx.navigateTo({
@@ -151,6 +160,20 @@ Page({
       downColor: true,
       upColor: false
     })
+    if(titlename == 'sx') {
+      this.setData({
+        isShowScreen: true
+      })
+    }
+  },
+   // 筛选数据页面的方法
+  clickShade() {
+    this.setData({
+      isShowScreen: false
+    })
+  },
+  clickShow() {
+    console.log(8888888);
   },
 
   /**

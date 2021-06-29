@@ -28,3 +28,6 @@
 .icon-duanxin-box{
   right: 26rpx;
 }
+.img-item{
+  width: 100%;
+}

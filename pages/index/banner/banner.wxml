@@ -11,7 +11,7 @@
     <swiper indicator-dots="{{true}}" autoplay="{{true}}" circular="{{true}}" class="swiper-box">
       <block wx:for="{{dataBanner}}" wx:key="id">
         <swiper-item>
-          <cover-image class="img-item" src="{{item.url}}"></cover-image>
+          <image class="img-item" src="{{item.url}}"></image>
         </swiper-item>
       </block>
     </swiper>

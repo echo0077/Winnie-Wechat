@@ -1,1 +1,22 @@
 /* pages/searchList/searchPage/screenGoods/screenGoods.wxss */
+.screen-list-box{
+  border-bottom: 1rpx solid #bbb;
+}
+.screen-list-title{
+  font-weight: bold;
+}
+.screen-up-icon{
+  float: right;
+}
+.screen-list-content-box{
+  display: flex;
+  flex-wrap: wrap;
+}
+.screen-list-content{
+  width: 180rpx;
+  height: 50rpx;
+  background: #ddd;
+  text-align: center;
+  line-height: 50rpx;
+  margin: 10rpx;
+}

@@ -1,2 +1,12 @@
 <!--pages/searchList/searchPage/screenGoods/screenGoods.wxml-->
-<text>screenGoods.wxml</text>
+<view>
+  <view wx:for="{{screenList}}" wx:key='index' class="screen-list-box">
+    <view>
+      <text class="screen-list-title">{{item.title}}</text>
+      <my-icon type="xiangxia8" size="30" color="#bbb" class="screen-up-icon" />
+    </view>
+    <view class="screen-list-content-box">
+      <view wx:for="{{item.list}}" wx:key='index' class="screen-list-content">{{item.name}}</view>
+    </view>
+  </view>
+</view>
