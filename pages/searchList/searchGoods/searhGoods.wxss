@@ -49,11 +49,6 @@
 .icon-up{
   margin-top: 10px;
 }
-/* .icon-shaixuan-box{
-  position: absolute;
-  top: 120rpx;
-  right: 7%;
-} */
 .goods-list-content-box{
   display: flex;
   flex-wrap: wrap;

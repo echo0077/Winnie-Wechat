@@ -1,7 +1,7 @@
 <!--pages/searchList/searchGoods/searhGoods.wxml-->
 <view class="goods-big-box">
-  <view class="screen-box-shade" style=" {{isShowScreen ? 'display: block;' : 'display: none;'}}" bindtap="clickShade"></view>
-  <view class="screen-box {{isShowScreen ? 'show-screen-box' : 'hide-screen-box'}}" bindtap="clickShow">
+  <view class="screen-box-shade" style="{{isShowScreen ? 'display: block;' : 'display: none;'}}" bindtap="clickShade"></view>
+  <view class="screen-box {{isShowScreen ? 'show-screen-box' : 'hide-screen-box'}}">
     <screenGoods screenData='{{screenData}}' /> 
   </view>
   <view class="goods-list-top">

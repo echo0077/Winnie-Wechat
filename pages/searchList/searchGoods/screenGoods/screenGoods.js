@@ -8,7 +8,6 @@ Component({
       type: Object,
       value: {},
       observer: function (newVal, oldVal, changedPath) {
-        console.log(newVal, oldVal);
         this.setData({
           'screenList[0].list': newVal.groupList3,
           'screenList[1].list': newVal.groupList1,
@@ -35,30 +34,38 @@ Component({
         title: '国家',
         list: []
       },
-    ]
+      {
+        title: '价格',
+        list: [{name: '0-99'},{name: '100-199'},{name: '200-299'}]
+      },
+      {
+        title: '库存',
+        list: [{name: '0-99'},{name: '100-499'},{name: '500以上'}]
+      },
+      {
+        title: '发货',
+        list: [{name: '保税区邮'},{name: '香港直邮'},{name: '海外直邮'},{name: '国内发货'},]
+      }
+    ],
+    showORhide: false,
+    showType: ''
   },
 
   /**
    * 组件的方法列表
    */
   methods: {
-    onBeforeEnter(res) {
-      console.log(res)
+    ishideList(e) {
+      let type = e.currentTarget.dataset.type
+      this.setData({
+        showORhide: true,
+        showType: type
+      })
     },
-    onEnter(res) {
-      console.log(res)
-    },
-    onAfterEnter(res) {
-      console.log(res)
-    },
-    onBeforeLeave(res) {
-      console.log(res)
-    },
-    onLeave(res) {
-      console.log(res)
-    },
-    onAfterLeave(res) {
-      console.log(res)
-    },
+    isshowList(e) {
+      this.setData({
+        showORhide: false
+      })
+    }
   }
 })

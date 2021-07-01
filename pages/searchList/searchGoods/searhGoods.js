@@ -66,16 +66,8 @@ Page({
     screenData: {}
   },
 
-  getData(key, name, _order) {
-    console.log(key, name, _order);
+  getParam() {
     let data = this.data.searchGoodsData
-    if(key == 'data' && name == 'bottom') {
-      data.pageNum = data.pageNum + 1
-    }
-    if(key == 'click' && name != 'sx') {
-      data.sort = name
-      data.order = _order
-    }
     let param = {
       strCount: data.strCount,
       endCount: data.endCount,
@@ -99,6 +91,17 @@ Page({
       pageNum: data.pageNum,
       pageSize: data.pageSize,
       name: this.data.searchkey
+    }
+    return param
+  },
+  getData(key, name, _order) {
+    let param = this.getParam()
+    if(key == 'data' && name == 'bottom') {
+      param.pageNum = param.pageNum + 1
+    }
+    if(key == 'click' && name != 'sx') {
+      param.sort = name
+      param.order = _order
     }
     if(name != 'sx') {
       let _list = []
@@ -127,13 +130,6 @@ Page({
           goodsList: _list,
           'searchGoodsData.pageNum': res.data.result.pageNum,
           goodsTotal: res.data.result.total
-        })
-      })
-    } else {
-      getSolrGroup(param).then(res => {
-        console.log(res.data.result);
-        this.setData({
-          screenData: res.data.result
         })
       })
     }
@@ -182,6 +178,13 @@ Page({
   onLoad: function (options) {
     this.setData({
       searchkey: options.searchkey
+    })
+    let param = this.getParam()
+    getSolrGroup(param).then(res => {
+      console.log(res.data.result);
+      this.setData({
+        screenData: res.data.result
+      })
     })
   },
 

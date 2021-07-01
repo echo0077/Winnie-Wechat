@@ -1,12 +1,20 @@
 <!--pages/searchList/searchPage/screenGoods/screenGoods.wxml-->
 <view>
-  <view wx:for="{{screenList}}" wx:key='index' class="screen-list-box">
-    <view>
-      <text class="screen-list-title">{{item.title}}</text>
-      <my-icon type="xiangxia8" size="30" color="#bbb" class="screen-up-icon" />
+  <scroll-view scroll-y="true" style="height: 1300rpx;">
+    <view wx:for="{{screenList}}" wx:key='index' class="screen-list-box">
+      <view>
+        <text class="screen-list-title">{{item.title}}</text>
+        <my-icon wx:if="{{showORhide && showType == item.title}}" type="xiangshang10" size="30" color="#bbb" data-type="{{item.title}}" class="screen-up-icon" bindtap="isshowList" />
+        <my-icon wx:else type="xiangxia8" size="30" color="#bbb" data-type="{{item.title}}" class="screen-up-icon" bindtap="ishideList" />
+      </view>
+      <view class="screen-list-content-box" style="{{showORhide && showType == item.title ? '' : 'height: 136rpx; overflow: hidden;'}}">
+        <view wx:for="{{item.list}}" wx:key='index' wx:for-item="itm" class="screen-list-content">{{itm.name}}</view>
+        <block wx:if="{{item.title == '价格' || item.title == '库存'}}">
+          <input placeholder="{{item.title == '价格'? '最低价': '最低量'}}" class="screen-input"/> --
+          <input placeholder="{{item.title == '价格'? '最高价': '最高量'}}" class="screen-input" />
+        </block>
+      </view>
     </view>
-    <view class="screen-list-content-box">
-      <view wx:for="{{item.list}}" wx:key='index' class="screen-list-content">{{item.name}}</view>
-    </view>
-  </view>
+  </scroll-view>
+  
 </view>

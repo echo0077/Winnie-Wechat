@@ -1,5 +1,7 @@
 /* pages/searchList/searchPage/screenGoods/screenGoods.wxss */
 .screen-list-box{
+  width: 96%;
+  margin: auto;
   border-bottom: 1rpx solid #bbb;
 }
 .screen-list-title{
@@ -7,16 +9,30 @@
 }
 .screen-up-icon{
   float: right;
+  margin-right: 16rpx;
+  width: 40rpx;
+  height: 36rpx;
+  text-align: center;
+  line-height: 36rpx;
+
 }
 .screen-list-content-box{
   display: flex;
   flex-wrap: wrap;
 }
 .screen-list-content{
-  width: 180rpx;
+  width: 170rpx;
   height: 50rpx;
+  box-sizing: border-box;
+  padding: 0 8rpx;
   background: #ddd;
   text-align: center;
   line-height: 50rpx;
   margin: 10rpx;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.screen-input{
+  border: #bbb solid 2rpx;
 }
