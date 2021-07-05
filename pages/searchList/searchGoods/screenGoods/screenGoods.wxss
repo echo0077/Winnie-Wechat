@@ -32,7 +32,18 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  position: relative;
+}
+.screen-list-content-active{
+  border: #FF4500 solid 2rpx;
+}
+.screen-yes-icon{
+  position: absolute;
+  right: -4rpx;
 }
 .screen-input{
   border: #bbb solid 2rpx;
+  width: 170rpx;
+  background-color: #ddd;
+  margin: 0 10rpx;
 }

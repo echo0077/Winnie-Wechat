@@ -8,7 +8,17 @@
         <my-icon wx:else type="xiangxia8" size="30" color="#bbb" data-type="{{item.title}}" class="screen-up-icon" bindtap="ishideList" />
       </view>
       <view class="screen-list-content-box" style="{{showORhide && showType == item.title ? '' : 'height: 136rpx; overflow: hidden;'}}">
-        <view wx:for="{{item.list}}" wx:key='index' wx:for-item="itm" class="screen-list-content">{{itm.name}}</view>
+        <view 
+          wx:for="{{item.list}}" 
+          wx:key='index' 
+          wx:for-item="itm" 
+          class="screen-list-content {{selectData && selectKey == itm.name ? 'screen-list-content-active' : ''}} "
+          bindtap="pitchOn"
+          data-select="{{itm.name}}"
+        >
+          {{itm.name}}
+          <my-icon wx:if="{{selectData && selectKey == itm.name}}" type="yes" size="40" color="#FF4500" data-type="{{item.title}}" class="screen-yes-icon" />
+        </view>
         <block wx:if="{{item.title == '价格' || item.title == '库存'}}">
           <input placeholder="{{item.title == '价格'? '最低价': '最低量'}}" class="screen-input"/> --
           <input placeholder="{{item.title == '价格'? '最高价': '最高量'}}" class="screen-input" />

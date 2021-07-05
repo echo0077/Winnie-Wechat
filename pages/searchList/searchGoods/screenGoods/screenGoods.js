@@ -48,7 +48,10 @@ Component({
       }
     ],
     showORhide: false,
-    showType: ''
+    showType: '',
+    selectData: false,
+    selectKeyList: [],
+    selectKey: ''
   },
 
   /**
@@ -66,6 +69,36 @@ Component({
       this.setData({
         showORhide: false
       })
+    },
+    pitchOn(e) {
+      let key = e.currentTarget.dataset.select
+      this.data.screenList.forEach(item => {
+        item.list.forEach(itm => {
+          if(itm.name == key) {
+            itm.select = true
+          }
+        })
+      })
+      console.log(this.data.screenList);
+      // console.log(key);
+      // let arr = this.data.selectKeyList
+      // if(this.data.selectKey == key) {
+      //   console.log(111);
+      //   this.setData({
+      //     selectKey: key,
+      //     selectKeyList: arr,
+      //     selectData: !this.data.selectData
+      //   })
+      // } else {
+      //   console.log(222);
+      //   arr.push(key)
+      //   this.setData({
+      //     selectKey: key,
+      //     selectKeyList: arr,
+      //     selectData: true
+      //   })
+      // }
+      
     }
   }
 })

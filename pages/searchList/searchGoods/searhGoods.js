@@ -68,29 +68,10 @@ Page({
 
   getParam() {
     let data = this.data.searchGoodsData
-    let param = {
-      strCount: data.strCount,
-      endCount: data.endCount,
-      strPrice: data.strPrice,
-      endPrice: data.endPrice,
-      brandId: data.brandId,
-      countryId: data.countryId,
-      deliveryType: data.deliveryType,
-      topCategory: data.topCategory,
-      twoCategory: data.twoCategory,
-      threeCategory: data.threeCategory,
-      sort: data.sort,
-      order: data.order,
-      ifSpecOfMall: data.ifSpecOfMall,
-      couponPolicyId: data.couponPolicyId,
-      couponId: data.couponId,
-      themeId: data.themeId,
-      ifDead: data.ifDead,
-      ifNew: data.ifNew,
-      ifDisCount: data.ifDisCount,
-      pageNum: data.pageNum,
-      pageSize: data.pageSize,
-      name: this.data.searchkey
+    data.name = this.data.searchkey
+    let param = {}
+    for(let key in data) {
+      param[key] = data[key]
     }
     return param
   },
@@ -177,7 +158,7 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      searchkey: options.searchkey
+      searchkey: options.searchkey || '防晒'
     })
     let param = this.getParam()
     getSolrGroup(param).then(res => {
