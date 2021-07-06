@@ -8,11 +8,22 @@ Component({
       type: Object,
       value: {},
       observer: function (newVal, oldVal, changedPath) {
-        this.setData({
-          'screenList[0].list': newVal.groupList3,
-          'screenList[1].list': newVal.groupList1,
-          'screenList[2].list': newVal.groupList2
-        })
+        if(newVal.hasOwnProperty('groupList1')) {
+          newVal.groupList3.forEach(item => {
+            item.select = false
+          })
+          newVal.groupList1.forEach(item => {
+            item.select = false
+          })
+          newVal.groupList2.forEach(item => {
+            item.select = false
+          })
+          this.setData({
+            'screenList[0].list': newVal.groupList3,
+            'screenList[1].list': newVal.groupList1,
+            'screenList[2].list': newVal.groupList2
+          })
+        }
       }
     }
   },
@@ -36,22 +47,38 @@ Component({
       },
       {
         title: '价格',
-        list: [{name: '0-99'},{name: '100-199'},{name: '200-299'}]
+        list: [
+          {name: '0-99', select: false, id: '001'},
+          {name: '100-199', select: false, id: '002'},
+          {name: '200-299', select: false, id: '003'}
+        ]
       },
       {
         title: '库存',
-        list: [{name: '0-99'},{name: '100-499'},{name: '500以上'}]
+        list: [
+          {name: '0-99', select: false, id: '004'},
+          {name: '100-499', select: false, id: '005'},
+          {name: '500以上', select: false, id: '006'}
+        ]
       },
       {
         title: '发货',
-        list: [{name: '保税区邮'},{name: '香港直邮'},{name: '海外直邮'},{name: '国内发货'},]
+        list: [
+          {name: '保税区邮', select: false, id: '007'},
+          {name: '香港直邮', select: false, id: '008'},
+          {name: '海外直邮', select: false, id: '009'},
+          {name: '国内发货', select: false, id: '010'}
+        ]
       }
     ],
     showORhide: false,
     showType: '',
     selectData: false,
     selectKeyList: [],
-    selectKey: ''
+    strPrice: '',
+    endPrice: '',
+    strCount: '',
+    endCount: ''
   },
 
   /**
@@ -72,33 +99,50 @@ Component({
     },
     pitchOn(e) {
       let key = e.currentTarget.dataset.select
+      let title = e.currentTarget.dataset.title
+      let name = e.currentTarget.dataset.name
+      let strPrice = ''
+      let endPrice = ''
+      let strCount = ''
+      let endCount = ''
+      if(title == '价格' || title == '库存') {
+        let list = name.split('-')
+        if(title == '价格') {
+          strPrice = list[0]
+          endPrice = list[1]
+        } else {
+          strCount = name == '500以上' ? '500' : list[0]
+          endCount = list[1]
+        }
+      }
+      let _arr = this.data.selectKeyList
+      if(_arr.length > 0) {
+        if(_arr.findIndex((item) => item === key) != -1) {
+          _arr.splice(index, 1)
+        } else {
+          _arr.push(key)
+        }
+      } else{
+        _arr.push(key)
+      }
       this.data.screenList.forEach(item => {
         item.list.forEach(itm => {
-          if(itm.name == key) {
+          if(_arr.findIndex((i) => itm.id === i) != -1) {
             itm.select = true
+          } else {
+            itm.select = false
           }
         })
       })
-      console.log(this.data.screenList);
-      // console.log(key);
-      // let arr = this.data.selectKeyList
-      // if(this.data.selectKey == key) {
-      //   console.log(111);
-      //   this.setData({
-      //     selectKey: key,
-      //     selectKeyList: arr,
-      //     selectData: !this.data.selectData
-      //   })
-      // } else {
-      //   console.log(222);
-      //   arr.push(key)
-      //   this.setData({
-      //     selectKey: key,
-      //     selectKeyList: arr,
-      //     selectData: true
-      //   })
-      // }
-      
+      let arr = this.data.screenList
+      this.setData({
+        screenList: arr,
+        selectKeyList: _arr,
+        strPrice: strPrice,
+        endPrice: endPrice,
+        strCount: strCount,
+        endCount: endCount,
+      })
     }
   }
 })
