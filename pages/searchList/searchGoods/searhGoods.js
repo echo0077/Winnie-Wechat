@@ -68,11 +68,7 @@ Page({
 
   getParam() {
     let data = this.data.searchGoodsData
-    data.name = this.data.searchkey
-    let param = {}
-    for(let key in data) {
-      param[key] = data[key]
-    }
+    let param = { ...data, name: this.data.searchkey }
     return param
   },
   getData(key, name, _order) {

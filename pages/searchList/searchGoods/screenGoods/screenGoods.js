@@ -9,15 +9,11 @@ Component({
       value: {},
       observer: function (newVal, oldVal, changedPath) {
         if(newVal.hasOwnProperty('groupList1')) {
-          newVal.groupList3.forEach(item => {
-            item.select = false
-          })
-          newVal.groupList1.forEach(item => {
-            item.select = false
-          })
-          newVal.groupList2.forEach(item => {
-            item.select = false
-          })
+          for(let key in newVal) {
+            newVal[key].forEach(item => {
+              item.select = false
+            })
+          }
           this.setData({
             'screenList[0].list': newVal.groupList3,
             'screenList[1].list': newVal.groupList1,
@@ -101,39 +97,66 @@ Component({
       let key = e.currentTarget.dataset.select
       let title = e.currentTarget.dataset.title
       let name = e.currentTarget.dataset.name
-      let strPrice = ''
-      let endPrice = ''
-      let strCount = ''
-      let endCount = ''
-      if(title == '价格' || title == '库存') {
-        let list = name.split('-')
-        if(title == '价格') {
-          strPrice = list[0]
-          endPrice = list[1]
-        } else {
-          strCount = name == '500以上' ? '500' : list[0]
-          endCount = list[1]
-        }
-      }
       let _arr = this.data.selectKeyList
-      if(_arr.length > 0) {
-        if(_arr.findIndex((item) => item === key) != -1) {
-          _arr.splice(index, 1)
+      let obj = {title, key, name}
+      //将选中的数据push到某个数组中，并根据不同的功能的不同进行切割
+      if(title == '价格' || title == '库存' || title == '发货') {
+        let index = _arr.findIndex((item) => item.title === title)
+        if(index != -1) {
+          let index_1 = _arr.findIndex((item) => item.key === key)
+          if(index_1 != -1) {
+            _arr.splice(index, 1)
+          } else {
+            _arr.splice(index, 1)
+            _arr.push(obj)
+          }
         } else {
-          _arr.push(key)
+          _arr.push(obj)
         }
-      } else{
-        _arr.push(key)
+      }else {
+        if(_arr.length > 0) {
+          let index = _arr.findIndex((item) => item.key === key)
+          if(index != -1) {
+            _arr.splice(index, 1)
+          } else {
+            _arr.push(obj)
+          }
+        } else{
+          _arr.push(obj)
+        }
       }
+      // 将选中数据的数组与页面数据对比，设置select的值
       this.data.screenList.forEach(item => {
         item.list.forEach(itm => {
-          if(_arr.findIndex((i) => itm.id === i) != -1) {
+          if(_arr.findIndex((i) => itm.id === i.key) != -1) {
             itm.select = true
           } else {
             itm.select = false
           }
         })
       })
+      // 拿到选择价格或者库存后的值并写入输入框内 start
+      let strPrice = ''
+      let endPrice = ''
+      let strCount = ''
+      let endCount = ''
+      _arr.forEach(item => {
+        if(item.title == '价格') {
+          let list =  item.name.split('-')
+          strPrice = list[0]
+          endPrice = list[1]
+        } else if(item.title == '库存') {
+          if(item.name == '500以上') {
+            strCount = '500'
+            endCount = ''
+          } else {
+            let list =  item.name.split('-')
+            strCount = list[0]
+            endCount = list[1]
+          }
+        }
+      })
+       // 拿到选择价格或者库存后的值并写入输入框内 end
       let arr = this.data.screenList
       this.setData({
         screenList: arr,

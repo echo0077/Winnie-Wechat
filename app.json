@@ -1,12 +1,12 @@
 {
   "pages": [
+    "pages/searchList/searchGoods/searhGoods",
     "pages/index/index",
     "pages/index/banner/banner",
     "pages/classify/classify",
     "pages/shopCart/shopCart",
     "pages/mine/mine",
-    "pages/searchList/searchPage/searchPage",
-    "pages/searchList/searchGoods/searhGoods"
+    "pages/searchList/searchPage/searchPage"
   ],
   "tabBar": {
     "color": "#a9a9a9",

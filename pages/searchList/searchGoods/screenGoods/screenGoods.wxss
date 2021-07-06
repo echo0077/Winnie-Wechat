@@ -25,7 +25,7 @@
   height: 50rpx;
   box-sizing: border-box;
   padding: 0 8rpx;
-  background: #ddd;
+  background: #e9ebf1;
   text-align: center;
   line-height: 50rpx;
   margin: 10rpx;
@@ -42,8 +42,8 @@
   right: -4rpx;
 }
 .screen-input{
-  border: #bbb solid 2rpx;
   width: 170rpx;
-  background-color: #ddd;
+  background-color: #e9ebf1;
   margin: 0 10rpx;
+  text-align: center;
 }
