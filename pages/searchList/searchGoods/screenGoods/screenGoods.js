@@ -164,6 +164,15 @@ Component({
         strCount: strCount,
         endCount: endCount,
       })
+    },
+    handleReset() {
+      this.setData({
+        selectKeyList: [],
+        strPrice: '',
+        endPrice: '',
+        strCount: '',
+        endCount: ''
+      })
     }
   }
 })

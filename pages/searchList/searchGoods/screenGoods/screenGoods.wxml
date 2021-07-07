@@ -1,5 +1,5 @@
 <!--pages/searchList/searchPage/screenGoods/screenGoods.wxml-->
-<view>
+<view style="width: 100%;">
   <scroll-view scroll-y="true" style="height: 1300rpx;">
     <view wx:for="{{screenList}}" wx:key='index' class="screen-list-box">
       <view class="title-box">
@@ -9,7 +9,7 @@
           <my-icon wx:else type="xiangxia8" size="30" color="#bbb" data-type="{{item.title}}" bindtap="ishideList" />
         </view>
       </view>
-      <view class="screen-list-content-box" style="{{showORhide && showType == item.title ? '' : 'height: 136rpx; overflow: hidden;'}}">
+      <view class="screen-list-content-box" style="{{showORhide && showType == item.title ? '' : 'height: 156rpx; overflow: hidden;'}}">
         <view 
           wx:for="{{item.list}}" 
           wx:key='index' 
@@ -38,5 +38,8 @@
       </view>
     </view>
   </scroll-view>
-  
+  <view class="footer-butt">
+    <view class="footer-butt-content handle-reset" bindtap="handleReset">重置</view>
+    <view class="footer-butt-content sure-box">确定</view>
+  </view>
 </view>
