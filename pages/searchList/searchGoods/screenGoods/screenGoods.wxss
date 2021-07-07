@@ -4,8 +4,9 @@
   margin: auto;
   border-bottom: 1rpx solid #bbb;
 }
-.screen-list-title{
-  font-weight: bold;
+.title-box{
+  height: 50rpx;
+  line-height: 50rpx;  
 }
 .screen-up-icon{
   float: right;

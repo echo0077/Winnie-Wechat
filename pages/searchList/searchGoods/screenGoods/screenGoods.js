@@ -99,15 +99,13 @@ Component({
       let name = e.currentTarget.dataset.name
       let _arr = this.data.selectKeyList
       let obj = {title, key, name}
-      //将选中的数据push到某个数组中，并根据不同的功能的不同进行切割
+      //将选中的数据push到某个数组中，并根据不同的功能进行切割
       if(title == '价格' || title == '库存' || title == '发货') {
         let index = _arr.findIndex((item) => item.title === title)
         if(index != -1) {
           let index_1 = _arr.findIndex((item) => item.key === key)
-          if(index_1 != -1) {
-            _arr.splice(index, 1)
-          } else {
-            _arr.splice(index, 1)
+          _arr.splice(index, 1)
+          if(index_1 == -1) {
             _arr.push(obj)
           }
         } else {

@@ -2,6 +2,8 @@
 .goods-big-box{
   background: #F5F5F5;
   position: relative;
+  padding: 0;
+  margin: 0;
 }
 .weui-input{
   height: 80rpx;
@@ -116,7 +118,7 @@
 }
 .screen-box{
   width: 600rpx;
-  height: 1400rpx;
+  height: 100%;
   background-color: #fff;
   z-index: 4;
   position: fixed;
