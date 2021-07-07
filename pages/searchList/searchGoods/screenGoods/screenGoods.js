@@ -166,7 +166,14 @@ Component({
       })
     },
     handleReset() {
+      let arr = this.data.screenList
+      arr.forEach(item => {
+        item.list.forEach(itm => {
+          itm.select = false
+        })
+      })
       this.setData({
+        screenList: arr,
         selectKeyList: [],
         strPrice: '',
         endPrice: '',
