@@ -9,11 +9,6 @@ Component({
       value: {},
       observer: function (newVal, oldVal, changedPath) {
         if(newVal.hasOwnProperty('groupList1')) {
-          for(let key in newVal) {
-            newVal[key].forEach(item => {
-              item.select = false
-            })
-          }
           this.setData({
             'screenList[0].list': newVal.groupList3,
             'screenList[1].list': newVal.groupList1,
@@ -31,50 +26,62 @@ Component({
     screenList: [
       {
         title: '分类',
+        key: 'threeCategory',
         list: []
       },
       {
         title: '品牌',
+        key: 'brandId',
         list: []
       },
       {
         title: '国家',
+        key: 'countryId',
         list: []
       },
       {
         title: '价格',
+        key: 'price',
         list: [
-          {name: '0-99', select: false, id: '001'},
-          {name: '100-199', select: false, id: '002'},
-          {name: '200-299', select: false, id: '003'}
+          {name: '0-99', id: '0-99'},
+          {name: '100-199', id: '100-199'},
+          {name: '200-299', id: '200-299'}
         ]
       },
       {
         title: '库存',
+        key: 'count',
         list: [
-          {name: '0-99', select: false, id: '004'},
-          {name: '100-499', select: false, id: '005'},
-          {name: '500以上', select: false, id: '006'}
+          {name: '0-99', id: '0-99'},
+          {name: '100-499', id: '100-499'},
+          {name: '500以上', id: '500'}
         ]
       },
       {
         title: '发货',
+        key: 'deliveryType',
         list: [
-          {name: '保税区邮', select: false, id: '007'},
-          {name: '香港直邮', select: false, id: '008'},
-          {name: '海外直邮', select: false, id: '009'},
-          {name: '国内发货', select: false, id: '010'}
+          {name: '保税区邮', id: '1'},
+          {name: '香港直邮', id: '2'},
+          {name: '海外直邮', id: '4'},
+          {name: '国内发货', id: '5'}
         ]
       }
     ],
     showORhide: false,
     showType: '',
-    selectData: false,
-    selectKeyList: [],
-    strPrice: '',
-    endPrice: '',
-    strCount: '',
-    endCount: ''
+    priAndcount: {
+      strPrice: '',
+      endPrice: '',
+      strCount: '',
+      endCount: ''
+    },
+    threeCategory: '',
+    brandId: '',
+    countryId: '',
+    deliveryType: '',
+    price: '',
+    count: '',
   },
 
   /**
@@ -93,93 +100,40 @@ Component({
         showORhide: false
       })
     },
-    pitchOn(e) {
-      let key = e.currentTarget.dataset.select
-      let title = e.currentTarget.dataset.title
-      let name = e.currentTarget.dataset.name
-      let _arr = this.data.selectKeyList
-      let obj = {title, key, name}
-      //将选中的数据push到某个数组中，并根据不同的功能进行切割
-      if(title == '价格' || title == '库存' || title == '发货') {
-        let index = _arr.findIndex((item) => item.title === title)
-        if(index != -1) {
-          let index_1 = _arr.findIndex((item) => item.key === key)
-          _arr.splice(index, 1)
-          if(index_1 == -1) {
-            _arr.push(obj)
-          }
-        } else {
-          _arr.push(obj)
-        }
-      }else {
-        if(_arr.length > 0) {
-          let index = _arr.findIndex((item) => item.key === key)
-          if(index != -1) {
-            _arr.splice(index, 1)
-          } else {
-            _arr.push(obj)
-          }
-        } else{
-          _arr.push(obj)
-        }
-      }
-      // 将选中数据的数组与页面数据对比，设置select的值
-      this.data.screenList.forEach(item => {
-        item.list.forEach(itm => {
-          if(_arr.findIndex((i) => itm.id === i.key) != -1) {
-            itm.select = true
-          } else {
-            itm.select = false
-          }
-        })
-      })
-      // 拿到选择价格或者库存后的值并写入输入框内 start
-      let strPrice = ''
-      let endPrice = ''
-      let strCount = ''
-      let endCount = ''
-      _arr.forEach(item => {
-        if(item.title == '价格') {
-          let list =  item.name.split('-')
-          strPrice = list[0]
-          endPrice = list[1]
-        } else if(item.title == '库存') {
-          if(item.name == '500以上') {
-            strCount = '500'
-            endCount = ''
-          } else {
-            let list =  item.name.split('-')
-            strCount = list[0]
-            endCount = list[1]
-          }
-        }
-      })
-       // 拿到选择价格或者库存后的值并写入输入框内 end
-      let arr = this.data.screenList
-      this.setData({
-        screenList: arr,
-        selectKeyList: _arr,
-        strPrice: strPrice,
-        endPrice: endPrice,
-        strCount: strCount,
-        endCount: endCount,
-      })
-    },
     handleReset() {
       let arr = this.data.screenList
-      arr.forEach(item => {
-        item.list.forEach(itm => {
-          itm.select = false
-        })
-      })
       this.setData({
         screenList: arr,
-        selectKeyList: [],
         strPrice: '',
         endPrice: '',
         strCount: '',
         endCount: ''
       })
+    },
+    sure() {
+      // priAndcount: {
+      //   strPrice: '',
+      //   endPrice: '',
+      //   strCount: '',
+      //   endCount: ''
+      // },
+      let threeCategory = this.selectComponent("#threeCategory").data.pitchOnList.join(',')
+      let brandId = this.selectComponent("#brandId").data.pitchOnList.join(',')
+      let countryId = this.selectComponent("#countryId").data.pitchOnList.join(',')
+      let deliveryType = this.selectComponent("#deliveryType").data.pitchOnList.join('')
+      let price = this.selectComponent("#price").data.pitchOnList.join('')
+      let count = this.selectComponent("#count").data.pitchOnList.join('')
+      let strPrice = price.slice('-')
+      console.log(strPrice);
+      this.setData({
+        threeCategory: threeCategory,
+        brandId: brandId,
+        countryId: countryId,
+        deliveryType: deliveryType,
+        price: price,
+        count: count,
+      })
+      console.log(price);
     }
   }
 })

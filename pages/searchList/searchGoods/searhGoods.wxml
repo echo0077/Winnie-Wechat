@@ -2,7 +2,7 @@
 <view class="goods-big-box">
   <view class="screen-box-shade" style="{{isShowScreen ? 'display: block;' : 'display: none;'}}" bindtap="clickShade"></view>
   <view class="screen-box {{isShowScreen ? 'show-screen-box' : 'hide-screen-box'}}">
-    <screenGoods screenData='{{screenData}}' /> 
+    <screenGoods screenData='{{screenData}}' bind:addInfo="getAddInfo"/> 
   </view>
   <view class="goods-list-top">
     <view>

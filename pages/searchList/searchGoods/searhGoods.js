@@ -73,9 +73,6 @@ Page({
   },
   getData(key, name, _order) {
     let param = this.getParam()
-    if(key == 'data' && name == 'bottom') {
-      param.pageNum = param.pageNum + 1
-    }
     if(key == 'click' && name != 'sx') {
       param.sort = name
       param.order = _order
@@ -98,11 +95,7 @@ Page({
               break;
           }
         })
-        if(key == 'data') {
-          _list = this.data.goodsList.concat(list)
-        } else {
-          _list = list
-        }
+         _list = this.data.goodsList.concat(list)
         this.setData({
           goodsList: _list,
           'searchGoodsData.pageNum': res.data.result.pageNum,
@@ -122,7 +115,8 @@ Page({
     this.setData({
       changeColor: titlename,
       upColor: true,
-      downColor: false
+      downColor: false,
+      goodsList: []
     })
   },
   clickDown(e) {
@@ -131,7 +125,8 @@ Page({
     this.setData({
       changeColor: titlename,
       downColor: true,
-      upColor: false
+      upColor: false,
+      goodsList: []
     })
     if(titlename == 'sx') {
       this.setData({
@@ -145,8 +140,12 @@ Page({
       isShowScreen: false
     })
   },
-  clickShow() {
-    console.log(8888888);
+  getAddInfo(e){
+    //deliveryType"发货" 1.保税区邮 2香港直邮 4海外直邮 5国内发货 
+    // threeCategory fenlei
+    //brandId pingpia
+    //countryId guojia
+    
   },
 
   /**
@@ -174,7 +173,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getData('data', 'init', '')
+    this.getData('', 'init', '')
   },
 
   /**
@@ -203,7 +202,11 @@ Page({
    */
   onReachBottom: function () {
     if (this.data.goodsList.length < this.data.goodsTotal) {
-      this.getData('data', 'bottom', '')
+      let pageNum = this.data.searchGoodsData.pageNum + 1
+      this.setData({
+        'searchGoodsData.pageNum': pageNum
+      })
+      this.getData('', 'bottom', '')
     } else if (this.data.goodsTotal != 0) {
       this.setData({
         showBottom: true

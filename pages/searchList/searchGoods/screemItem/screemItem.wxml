@@ -1,0 +1,21 @@
+<!--pages/searchList/searchGoods/screemItem/screemItem.wxml-->
+<wxs src="../../../../utils/tools.wxs" module="tool" />
+<view class="screen-list-content-box">
+  <view 
+    wx:if="{{itemList.length > 0}}"
+    wx:for="{{itemList}}"
+    wx:key='index'
+    bindtap="pitchOn"
+    data-select="{{item.id}}"
+    class="{{tool.filterSelect(pitchOnList, item.id) ? 'screen-list-content screen-list-content-active' : 'screen-list-content'}}" 
+  >{{item.name}}
+    <my-icon 
+      wx:if="{{tool.filterSelect(pitchOnList, item.id)}}" 
+      type="yes" 
+      size="40" 
+      color="#FF4500" 
+      data-type="{{item.id}}" 
+      class="screen-yes-icon" 
+    />
+  </view>
+</view>

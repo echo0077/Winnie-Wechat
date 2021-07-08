@@ -42,6 +42,7 @@
 .screen-yes-icon{
   position: absolute;
   right: -4rpx;
+  bottom: -10rpx;
 }
 .screen-input{
   width: 170rpx;

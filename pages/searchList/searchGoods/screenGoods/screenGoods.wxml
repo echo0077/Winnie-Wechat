@@ -10,19 +10,7 @@
         </view>
       </view>
       <view class="screen-list-content-box" style="{{showORhide && showType == item.title ? '' : 'height: 156rpx; overflow: hidden;'}}">
-        <view 
-          wx:for="{{item.list}}" 
-          wx:key='index' 
-          wx:for-item="itm" 
-          class="screen-list-content {{itm.select ? 'screen-list-content-active' : ''}} "
-          bindtap="pitchOn"
-          data-select="{{itm.id}}"
-          data-title="{{item.title}}"
-          data-name="{{itm.name}}"
-        >
-          {{itm.name}}
-          <my-icon wx:if="{{itm.select}}" type="yes" size="40" color="#FF4500" data-type="{{item.title}}" class="screen-yes-icon" />
-        </view>
+        <screemItem itemList="{{item.list}}" id="{{item.key}}"></screemItem>
         <block wx:if="{{item.title == '价格' || item.title == '库存'}}">
           <input 
             placeholder="{{item.title == '价格'? '最低价': '最低量'}}" 
@@ -40,6 +28,6 @@
   </scroll-view>
   <view class="footer-butt">
     <view class="footer-butt-content handle-reset" bindtap="handleReset">重置</view>
-    <view class="footer-butt-content sure-box">确定</view>
+    <view class="footer-butt-content sure-box" bindtap="sure">确定</view>
   </view>
 </view>

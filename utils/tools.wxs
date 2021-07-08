@@ -1,0 +1,4 @@
+function filterSelect(pitchOnList, val) {
+  return pitchOnList.indexOf(val) != -1
+}
+module.exports = { filterSelect: filterSelect}

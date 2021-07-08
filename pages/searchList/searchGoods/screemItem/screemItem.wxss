@@ -1,0 +1,28 @@
+/* pages/searchList/searchGoods/screemItem/screemItem.wxss */
+.screen-list-content-box{
+  display: flex;
+  flex-wrap: wrap;
+}
+.screen-list-content{
+  width: 170rpx;
+  height: 56rpx;
+  box-sizing: border-box;
+  padding: 0 8rpx;
+  background: #e9ebf1;
+  text-align: center;
+  font-size: 24rpx;
+  line-height: 56rpx;
+  margin: 10rpx;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
+}
+.screen-list-content-active{
+  border: #FF4500 solid 2rpx;
+  background: #fff;
+}
+.screen-yes-icon{
+  position: absolute;
+  right: -4rpx;
+}
