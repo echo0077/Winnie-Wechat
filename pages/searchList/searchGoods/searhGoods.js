@@ -67,7 +67,11 @@ Page({
     screenData: {}
   },
 
+/**
+ * 页面上拉触底事件的处理函数
+ */
   onReachBottom: function () {
+    console.log(this.selectComponent("#goodsList"));
     if (this.data.goodsList.length < this.data.goodsTotal) {
       let param = this.getParam()
       param.pageNum = param.pageNum + 1
@@ -151,11 +155,7 @@ Page({
       } else {
         upAndDown = false
       }
-      if(!upAndDown) {
-        param.order = 1
-      } else {
-        param.order = 2
-      }
+      param.order = upAndDown ? 2 : 1
       this.setData({
         upAndDown: upAndDown,
         changeColor: name,
@@ -176,15 +176,9 @@ Page({
   },
   screenInfo(e){
     let list = e.detail
+    let obj = Object.assign(this.data.searchGoodsData, list)
     this.setData({
-      'searchGoodsData.deliveryType': list.deliveryType,
-      'searchGoodsData.threeCategory': list.threeCategory,
-      'searchGoodsData.brandId': list.brandId,
-      'searchGoodsData.countryId': list.countryId,
-      'searchGoodsData.endCount': list.priceAndCount.endCount,
-      'searchGoodsData.endPrice': list.priceAndCount.endPrice,
-      'searchGoodsData.strCount': list.priceAndCount.strCount,
-      'searchGoodsData.strPrice': list.priceAndCount.strPrice,
+      searchGoodsData: obj,
       isShowScreen: false,
       goodsList: []
     }, function(){
@@ -201,10 +195,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {},
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-
+  
   /**
    * 生命周期函数--监听页面隐藏
    */

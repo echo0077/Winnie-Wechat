@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "screenGoods": "./screenGoods/screenGoods"
+    "screenGoods": "./screenGoods/screenGoods",
+    "goodLists": "../../../components/goodLists/goodLists"
   }
 }

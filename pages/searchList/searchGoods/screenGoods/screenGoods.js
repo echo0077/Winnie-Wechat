@@ -94,21 +94,26 @@ Component({
         showORhide: false
       })
     },
-    price(val) {
-      let strPrice = val.detail.length > 0 ? val.detail[0] : ''
-      let endPrice = val.detail.length > 0 ? val.detail[1] : ''
-      this.setData({
-        'priceAndCount.strPrice': strPrice,
-        'priceAndCount.endPrice': endPrice
-      })
-    },
-    count(val) {
-      let strCount = val.detail.length > 0 ? val.detail[0] : ''
-      let endCount = val.detail.length > 0 ? val.detail[1] : ''
-      this.setData({
-        'priceAndCount.strCount': strCount,
-        'priceAndCount.endCount': endCount
-      })
+    getReserve(val) {
+      if(val.detail.length > 0) {
+        let str = val.detail[0]
+        let end = val.detail[1]
+        if(val.currentTarget.id == "price") {
+          this.setData({
+            priceAndCount: {
+              strPrice: str,
+              endPrice: end
+            }
+          })
+        } else {
+          this.setData({
+            priceAndCount: {
+              strCount: str,
+              endCount: end
+            }
+          })
+        }
+      }
     },
     handleReset() {
       let list = ['threeCategory','brandId','countryId','deliveryType','price','count']
@@ -118,10 +123,12 @@ Component({
         })
       })
       this.setData({
-        'priceAndCount.strPrice': '',
-        'priceAndCount.endPrice': '',
-        'priceAndCount.strCount': '',
-        'priceAndCount.endCount': ''
+        priceAndCount: {
+          strCount: '',
+          endCount: '',
+          strPrice: '',
+          endPrice: '',
+        }
       })
     },
     sure() {

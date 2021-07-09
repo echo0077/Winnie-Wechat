@@ -10,7 +10,7 @@
         </view>
       </view>
       <view class="screen-list-content-box" style="{{showORhide && showType == item.title ? '' : 'height: 156rpx; overflow: hidden;'}}">
-        <screemItem itemList="{{item.list}}" id="{{item.key}}" bind:addInfo="{{item.key}}"></screemItem>
+        <screemItem itemList="{{item.list}}" id="{{item.key}}" bind:addInfo="getReserve"></screemItem>
         <block wx:if="{{item.title == '价格' || item.title == '库存'}}">
           <input 
             placeholder="{{item.title == '价格'? '最低价': '最低量'}}" 

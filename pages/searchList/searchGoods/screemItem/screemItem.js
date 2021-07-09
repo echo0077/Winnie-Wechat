@@ -54,11 +54,6 @@ Component({
           pitchOnList: arr
         })
       }
-    },
-    // dataReset() {
-    //   this.setData({
-    //     pitchOnList: []
-    //   })
-    // }
+    }
   }
 })

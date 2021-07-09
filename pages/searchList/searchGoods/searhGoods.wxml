@@ -20,25 +20,5 @@
       </view>
     </view>
   </view>
-  <view class="goods-list-content-box">
-    <view wx:for="{{goodsList}}" wx:key="index" class="goods-list-content">
-      <view class="goods-list-img-box">
-        <image class="goods-list-img" src="{{item.imgUrl}}" style="z-index: -99;"></image>
-      </view>
-      <view class="goods-list-text">
-        <view class="goods-list-type">{{item.deliveryType}}</view>
-        <view class="goods-list-name">{{item.goodsName}}</view>
-        <view class="goods-list-price">
-          <text style="color: red;">￥{{item.mallPrice}}</text>
-          <text class="marketPrice">￥{{item.marketPrice}}</text>
-        </view>
-      </view>
-      <view class="goods-sold-out" wx:if="{{item.realStock == 0}}">
-        已抢光
-      </view>
-    </view>
-  </view>
-  <view wx:if="{{showBottom}}" class="goods-list-footer">
-    <my-icon type="panda" size="50" color="#ccc" />就到这里吧！我可是有底线的呢！
-  </view>
+  <goodLists goodsList="{{goodsList}}" showBottom="{{showBottom}}" id="goodsList"></goodLists>
 </view>
