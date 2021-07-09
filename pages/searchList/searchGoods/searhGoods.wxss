@@ -40,16 +40,17 @@
 .goods-icon-box{
   display: flex;
   width: 25rpx;
+  height: 0rpx;
   flex-wrap: wrap;
   justify-items: center;
 }
 .icon-box{
   width: 25rpx;
-  height: 30rpx;
+  height: 15rpx;
   line-height: 23rpx;
 }
 .icon-up{
-  margin-top: 10px;
+  margin-top: 17px;
 }
 .goods-list-content-box{
   display: flex;

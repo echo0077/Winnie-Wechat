@@ -54,7 +54,7 @@ Component({
         list: [
           {name: '0-99', id: '0-99'},
           {name: '100-499', id: '100-499'},
-          {name: '500以上', id: '500'}
+          {name: '500以上', id: '500-'}
         ]
       },
       {
@@ -70,18 +70,12 @@ Component({
     ],
     showORhide: false,
     showType: '',
-    priAndcount: {
+    priceAndCount: {
       strPrice: '',
       endPrice: '',
       strCount: '',
       endCount: ''
-    },
-    threeCategory: '',
-    brandId: '',
-    countryId: '',
-    deliveryType: '',
-    price: '',
-    count: '',
+    }
   },
 
   /**
@@ -100,40 +94,46 @@ Component({
         showORhide: false
       })
     },
-    handleReset() {
-      let arr = this.data.screenList
+    price(val) {
+      let strPrice = val.detail.length > 0 ? val.detail[0] : ''
+      let endPrice = val.detail.length > 0 ? val.detail[1] : ''
       this.setData({
-        screenList: arr,
-        strPrice: '',
-        endPrice: '',
-        strCount: '',
-        endCount: ''
+        'priceAndCount.strPrice': strPrice,
+        'priceAndCount.endPrice': endPrice
+      })
+    },
+    count(val) {
+      let strCount = val.detail.length > 0 ? val.detail[0] : ''
+      let endCount = val.detail.length > 0 ? val.detail[1] : ''
+      this.setData({
+        'priceAndCount.strCount': strCount,
+        'priceAndCount.endCount': endCount
+      })
+    },
+    handleReset() {
+      let list = ['threeCategory','brandId','countryId','deliveryType','price','count']
+      list.forEach(item => {
+        this.selectComponent(`#${item}`).setData({
+          pitchOnList: []
+        })
+      })
+      this.setData({
+        'priceAndCount.strPrice': '',
+        'priceAndCount.endPrice': '',
+        'priceAndCount.strCount': '',
+        'priceAndCount.endCount': ''
       })
     },
     sure() {
-      // priAndcount: {
-      //   strPrice: '',
-      //   endPrice: '',
-      //   strCount: '',
-      //   endCount: ''
-      // },
-      let threeCategory = this.selectComponent("#threeCategory").data.pitchOnList.join(',')
-      let brandId = this.selectComponent("#brandId").data.pitchOnList.join(',')
-      let countryId = this.selectComponent("#countryId").data.pitchOnList.join(',')
-      let deliveryType = this.selectComponent("#deliveryType").data.pitchOnList.join('')
-      let price = this.selectComponent("#price").data.pitchOnList.join('')
-      let count = this.selectComponent("#count").data.pitchOnList.join('')
-      let strPrice = price.slice('-')
-      console.log(strPrice);
-      this.setData({
-        threeCategory: threeCategory,
-        brandId: brandId,
-        countryId: countryId,
-        deliveryType: deliveryType,
-        price: price,
-        count: count,
+      let list = ['threeCategory','brandId','countryId','deliveryType']
+      let arr = []
+      list.forEach(item => {
+        arr.push(this.selectComponent(`#${item}`).data.pitchOnList.join(','))
       })
-      console.log(price);
+      let priceAndCount = this.data.priceAndCount
+      let sureObj = { threeCategory: arr[0], brandId: arr[1], countryId: arr[2], deliveryType: arr[3], priceAndCount }
+      this.triggerEvent('sureInfo', sureObj)
+      this.handleReset()
     }
   }
 })

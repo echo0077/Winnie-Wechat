@@ -10,17 +10,17 @@
         </view>
       </view>
       <view class="screen-list-content-box" style="{{showORhide && showType == item.title ? '' : 'height: 156rpx; overflow: hidden;'}}">
-        <screemItem itemList="{{item.list}}" id="{{item.key}}"></screemItem>
+        <screemItem itemList="{{item.list}}" id="{{item.key}}" bind:addInfo="{{item.key}}"></screemItem>
         <block wx:if="{{item.title == '价格' || item.title == '库存'}}">
           <input 
             placeholder="{{item.title == '价格'? '最低价': '最低量'}}" 
             class="screen-input" 
-            value="{{item.title == '价格'? strPrice : strCount}}"
+            value="{{item.title == '价格'? priceAndCount.strPrice : priceAndCount.strCount}}"
           /> --
           <input 
             placeholder="{{item.title == '价格'? '最高价': '最高量'}}" 
             class="screen-input" 
-            value="{{item.title == '价格'? endPrice : endCount}}"
+            value="{{item.title == '价格'? priceAndCount.endPrice : priceAndCount.endCount}}"
           />
         </block>
       </view>

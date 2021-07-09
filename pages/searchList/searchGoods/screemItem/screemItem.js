@@ -25,9 +25,23 @@ Component({
     pitchOn(e) {
       let id = e.currentTarget.dataset.select
       if(typeof(id) != 'number') {
+        let arr = this.data.pitchOnList
+        let index = arr.indexOf(id)
+        if(index!= -1) {
+          arr.splice(index, 1)
+        } else {
+          arr = [id]
+        }
         this.setData({
-          pitchOnList: [id]
+          pitchOnList: arr
         })
+        if(id.indexOf('-') != -1) {
+          let list = []
+          if(arr.length > 0) {
+            list = id.split('-')
+          }
+          this.triggerEvent('addInfo', list)
+        }
       } else {
         let arr = this.data.pitchOnList
         let index = arr.indexOf(id)
@@ -40,6 +54,11 @@ Component({
           pitchOnList: arr
         })
       }
-    }
+    },
+    // dataReset() {
+    //   this.setData({
+    //     pitchOnList: []
+    //   })
+    // }
   }
 })

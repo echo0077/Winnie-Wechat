@@ -50,6 +50,7 @@
   margin: 0 10rpx;
   padding: 8rpx 0;
   text-align: center;
+  font-size: 24rpx;
 }
 .footer-butt{
   height: 90rpx;

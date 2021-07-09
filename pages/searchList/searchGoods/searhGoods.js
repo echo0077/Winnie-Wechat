@@ -31,9 +31,10 @@ Page({
       key: '筛选',
       showIcon: false,
       nameCode: 'sx'
-    }, ],
+    }],
     goodsList: [],
     goodsTotal: 0,
+    upAndDown: false,
     showBottom: false,
     upColor: false,
     downColor: false,
@@ -66,20 +67,50 @@ Page({
     screenData: {}
   },
 
+  onReachBottom: function () {
+    if (this.data.goodsList.length < this.data.goodsTotal) {
+      let param = this.getParam()
+      param.pageNum = param.pageNum + 1
+      this.getData(param)
+    } else if (this.data.goodsTotal != 0) {
+      this.setData({
+        showBottom: true
+      })
+    }
+  },
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    let param = this.getParam()
+    this.getData(param)
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    this.setData({
+      searchkey: options.searchkey || '防晒'
+    })
+    let param = this.getParam()
+    getSolrGroup(param).then(res => {
+      this.setData({
+        screenData: res.data.result
+      })
+    })
+  },
+
+/**
+   * 页面方法
+   */
   getParam() {
     let data = this.data.searchGoodsData
     let param = { ...data, name: this.data.searchkey }
     return param
   },
-  getData(key, name, _order) {
-    let param = this.getParam()
-    if(key == 'click' && name != 'sx') {
-      param.sort = name
-      param.order = _order
-    }
-    if(name != 'sx') {
-      let _list = []
-      searchGoods(param).then(res => {
+  getData(param) {
+    searchGoods(param).then(res => {
+      if(res.data.result.hasOwnProperty('list')) {
         let list = res.data.result.list
         list.forEach(item => {
           switch (item.deliveryType) {
@@ -95,40 +126,43 @@ Page({
               break;
           }
         })
-         _list = this.data.goodsList.concat(list)
+        let _list = this.data.goodsList.concat(list)
         this.setData({
           goodsList: _list,
           'searchGoodsData.pageNum': res.data.result.pageNum,
           goodsTotal: res.data.result.total
         })
-      })
-    }
+      }
+    })
   },
   golastPage() {
     wx.navigateTo({
       url: '../searchPage/searchPage?hotSearch=' + this.data.searchkey
     })
   },
-  clickUp(e) {
-    let titlename = e.target.dataset.titlename
-    this.getData('click', titlename, '1')
-    this.setData({
-      changeColor: titlename,
-      upColor: true,
-      downColor: false,
-      goodsList: []
-    })
-  },
-  clickDown(e) {
-    let titlename = e.target.dataset.titlename
-    this.getData('click', titlename, '2')
-    this.setData({
-      changeColor: titlename,
-      downColor: true,
-      upColor: false,
-      goodsList: []
-    })
-    if(titlename == 'sx') {
+  upAndDown(e) {
+    let upAndDown = this.data.upAndDown
+    let name = e.currentTarget.dataset.titlename
+    if(name != 'sx') { // 排除筛选直接请求数据
+      let param = this.getParam()
+      param.sort = name
+      if(name != 'xl' && this.data.changeColor == name) { // 排除销量改变upAndDown的值
+        upAndDown = !upAndDown
+      } else {
+        upAndDown = false
+      }
+      if(!upAndDown) {
+        param.order = 1
+      } else {
+        param.order = 2
+      }
+      this.setData({
+        upAndDown: upAndDown,
+        changeColor: name,
+        goodsList: []
+      })
+      this.getData(param)
+    } else {
       this.setData({
         isShowScreen: true
       })
@@ -140,41 +174,36 @@ Page({
       isShowScreen: false
     })
   },
-  getAddInfo(e){
-    //deliveryType"发货" 1.保税区邮 2香港直邮 4海外直邮 5国内发货 
-    // threeCategory fenlei
-    //brandId pingpia
-    //countryId guojia
-    
-  },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
+  screenInfo(e){
+    let list = e.detail
     this.setData({
-      searchkey: options.searchkey || '防晒'
-    })
-    let param = this.getParam()
-    getSolrGroup(param).then(res => {
-      console.log(res.data.result);
-      this.setData({
-        screenData: res.data.result
+      'searchGoodsData.deliveryType': list.deliveryType,
+      'searchGoodsData.threeCategory': list.threeCategory,
+      'searchGoodsData.brandId': list.brandId,
+      'searchGoodsData.countryId': list.countryId,
+      'searchGoodsData.endCount': list.priceAndCount.endCount,
+      'searchGoodsData.endPrice': list.priceAndCount.endPrice,
+      'searchGoodsData.strCount': list.priceAndCount.strCount,
+      'searchGoodsData.strPrice': list.priceAndCount.strPrice,
+      isShowScreen: false,
+      goodsList: []
+    }, function(){
+      let param = this.getParam()
+      this.getData(param)
+      getSolrGroup(param).then(res => {
+        this.setData({
+          screenData: res.data.result
+        })
       })
     })
   },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {},
-
   /**
-   * 生命周期函数--监听页面显示
+   * 页面上拉触底事件的处理函数
    */
-  onShow: function () {
-    this.getData('', 'init', '')
-  },
 
   /**
    * 生命周期函数--监听页面隐藏
@@ -195,23 +224,6 @@ Page({
    */
   onPullDownRefresh: function () {
 
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-    if (this.data.goodsList.length < this.data.goodsTotal) {
-      let pageNum = this.data.searchGoodsData.pageNum + 1
-      this.setData({
-        'searchGoodsData.pageNum': pageNum
-      })
-      this.getData('', 'bottom', '')
-    } else if (this.data.goodsTotal != 0) {
-      this.setData({
-        showBottom: true
-      })
-    }
   },
 
   /**

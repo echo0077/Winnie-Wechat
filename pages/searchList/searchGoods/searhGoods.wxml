@@ -2,7 +2,7 @@
 <view class="goods-big-box">
   <view class="screen-box-shade" style="{{isShowScreen ? 'display: block;' : 'display: none;'}}" bindtap="clickShade"></view>
   <view class="screen-box {{isShowScreen ? 'show-screen-box' : 'hide-screen-box'}}">
-    <screenGoods screenData='{{screenData}}' bind:addInfo="getAddInfo"/> 
+    <screenGoods screenData='{{screenData}}' bind:sureInfo="screenInfo"/> 
   </view>
   <view class="goods-list-top">
     <view>
@@ -10,11 +10,11 @@
       <my-icon type="sousuo" size="40" color="#666" class="icon-sousuo-box" />
     </view>
     <view class="goods-list-box">
-      <view wx:for="{{listTitle}}" wx:key="index" class="goods-list-title">
-        <text bindtap="clickDown" data-titleName="{{item.nameCode}}" style="{{item.nameCode == changeColor ? 'color: #800000' : ''}}">{{item.key}}</text>
+      <view wx:for="{{listTitle}}" wx:key="index" class="goods-list-title" bindtap="upAndDown" data-titleName="{{item.nameCode}}">
+        <text style="{{item.nameCode == changeColor ? 'color: #800000' : ''}}">{{item.key}}</text>
         <view wx:if="{{item.showIcon}}" style="margin-left: 6rpx" class="goods-icon-box">
-          <my-icon type="xiangshang" size="20" class="icon-box icon-up" color="{{(item.nameCode == changeColor && upColor) ? '#800000' : '#ccc'}}" bindtap="clickUp" data-titleName="{{item.nameCode}}"/>
-          <my-icon type="xiangxia" size="20" class="icon-box" color="{{(item.nameCode == changeColor && downColor) ? '#800000' : '#ccc'}}" bindtap="clickDown" data-titleName="{{item.nameCode}}"/>
+          <my-icon type="xiangshang" size="18" class="icon-box icon-up" color="{{(item.nameCode == changeColor && upAndDown) ? '#800000' : '#ccc'}}"/>
+          <my-icon type="xiangxia" size="18" class="icon-box" color="{{(item.nameCode == changeColor && !upAndDown) ? '#800000' : '#ccc'}}" />
         </view>
         <my-icon wx:if="{{item.nameCode == 'sx'}}"  type="shaixuan" size="28" color="{{item.nameCode == changeColor ? '#800000' : '#ccc'}}" class="icon-shaixuan-box"/>
       </view>

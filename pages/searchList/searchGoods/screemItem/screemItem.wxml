@@ -7,7 +7,7 @@
     wx:key='index'
     bindtap="pitchOn"
     data-select="{{item.id}}"
-    class="{{tool.filterSelect(pitchOnList, item.id) ? 'screen-list-content screen-list-content-active' : 'screen-list-content'}}" 
+    class="screen-list-content {{tool.filterSelect(pitchOnList, item.id) ? 'screen-list-content-active' : ''}}" 
   >{{item.name}}
     <my-icon 
       wx:if="{{tool.filterSelect(pitchOnList, item.id)}}" 
