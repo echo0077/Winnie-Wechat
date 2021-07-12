@@ -11,7 +11,7 @@
     </view>
     <view class="goods-list-box">
       <view wx:for="{{listTitle}}" wx:key="index" class="goods-list-title" bindtap="upAndDown" data-titleName="{{item.nameCode}}">
-        <text style="{{item.nameCode == changeColor ? 'color: #800000' : ''}}">{{item.key}}</text>
+        <text style="{{item.nameCode == changeColor ? 'color: #800000; font-size: 30rpx;' : 'font-size: 30rpx;'}}">{{item.key}}</text>
         <view wx:if="{{item.showIcon}}" style="margin-left: 6rpx" class="goods-icon-box">
           <my-icon type="xiangshang" size="18" class="icon-box icon-up" color="{{(item.nameCode == changeColor && upAndDown) ? '#800000' : '#ccc'}}"/>
           <my-icon type="xiangxia" size="18" class="icon-box" color="{{(item.nameCode == changeColor && !upAndDown) ? '#800000' : '#ccc'}}" />

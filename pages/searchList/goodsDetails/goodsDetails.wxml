@@ -1,0 +1,2 @@
+<!--pages/searchList/goodsDetails/goodsDetails.wxml-->
+<goodsDetailItem detailList="{{detailList}}"></goodsDetailItem>

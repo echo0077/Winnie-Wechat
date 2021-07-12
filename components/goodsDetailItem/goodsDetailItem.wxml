@@ -1,0 +1,22 @@
+<view>
+  <view class="header-box">
+    <my-icon type="fanhui" size="50" color="#000" class="icon-fanhui" bindtap="goBack"/>
+    <text style="font-size: 34rpx">商品详情</text>
+    <view class="top-right">
+      <my-icon type="shouye" size="50" color="#000" />
+      <my-icon type="gouwuche" size="50" color="#000" />
+    </view>
+  </view>
+  <view class="content-box">
+    <view class="content-carousel">
+      <swiper indicator-dots="{{true}}" indicator-active-color="{{indicatorActive}}" class="carousel-item">
+        <block wx:for="{{carouselImg}}" wx:key="index">
+          <swiper-item>
+            <image src="{{item.imgUrl}}" class="carousel-img"></image>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+  </view>
+  
+</view>

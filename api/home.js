@@ -11,9 +11,5 @@ module.exports = {
 	},
 	getHotSearch: ( ) => {
 		return request('/find/getHotSearch.shtml', 'POST', { }, false);
-	},
-	searchGoods: ( ) => {
-		return request('/solr/searchGoods.shtml', 'POST', { }, false);
-	},
-
+	}
 }

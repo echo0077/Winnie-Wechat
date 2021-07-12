@@ -25,4 +25,5 @@
 .screen-yes-icon{
   position: absolute;
   right: -4rpx;
+  bottom: -14rpx;
 }

@@ -11,6 +11,5 @@ module.exports = {
 	},
 	getSolrGroup: (param) => {
 		return request('/solrGoods/getSolrGroup.shtml', 'POST', param, false);
-	},
-
+	}
 }

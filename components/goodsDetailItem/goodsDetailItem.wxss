@@ -1,0 +1,36 @@
+/* components/goodsDetails/goodsDetails.wxss */
+.header-box{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  height: 80rpx;
+  border-bottom: 1rpx solid #ccc;
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+}
+.icon-fanhui{
+  margin-left: 30rpx;
+  width: 120rpx;
+}
+.top-right{
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: 30rpx;
+  width: 120rpx;
+  justify-content: space-between;
+}
+.content-box{
+  margin-top: 80rpx;
+}
+.content-carousel{
+  border-bottom: 1rpx solid #ccc;
+}
+.carousel-item{
+  height: 653rpx;
+}
+.carousel-img{
+  height: 100%;
+  width: 100%;
+}

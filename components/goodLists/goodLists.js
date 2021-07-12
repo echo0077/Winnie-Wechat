@@ -27,6 +27,11 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    goDetail(e) {
+      let goodsId = e.currentTarget.dataset.goodsno
+      wx.redirectTo({
+        url: '../goodsDetails/goodsDetails?goodsNo=' + goodsId
+      })
+    },
   }
 })

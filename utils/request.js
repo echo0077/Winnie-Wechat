@@ -8,7 +8,7 @@ module.exports = {
 
 //二次封装wx.request
 //url:请求接口的地址//
-// methode:请求方式 GET POST
+//methode:请求方式 GET POST
 //data:要传递的参数
 //isSubdomain:表示是否添加二级子域名
 
