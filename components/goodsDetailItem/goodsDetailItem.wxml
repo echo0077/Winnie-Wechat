@@ -1,4 +1,4 @@
-<view>
+<view style="background: #f8f9fc">
   <view class="header-box">
     <my-icon type="fanhui" size="50" color="#000" class="icon-fanhui" bindtap="goBack"/>
     <text style="font-size: 34rpx">商品详情</text>
@@ -16,7 +16,23 @@
           </swiper-item>
         </block>
       </swiper>
+      <view class="content-text">
+        <view class="content-title">{{goods.goodsName}}</view>
+        <view class="goods-price"><text>￥{{goods.mallPrice}}</text>~<text>{{goods.maxPrice}}</text></view>
+        <view class="goods-market-price">
+          价格：<text style="text-decoration: line-through;">￥{{goods.marketPrice}}</text>
+        </view>
+        <view class="country-box">
+          <image class="country-img" src="{{goods.goodsCountry.countryImgUrl2}}"></image>
+          <view class="country-name">{{goods.goodsCountry.countryName}}品牌，预计7个工作日左右到达</view>
+        </view>
+      </view>
+    </view>
+    <view class="goods-prams-box">
+    <view class="port-dispatch">
+      配送至：
+    </view>
+    <view></view>
     </view>
   </view>
-  
 </view>

@@ -41,7 +41,7 @@ Component({
       },
       {
         title: '价格',
-        key: 'price',
+        key: 'Price',
         list: [
           {name: '0-99', id: '0-99'},
           {name: '100-199', id: '100-199'},
@@ -50,7 +50,7 @@ Component({
       },
       {
         title: '库存',
-        key: 'count',
+        key: 'Count',
         list: [
           {name: '0-99', id: '0-99'},
           {name: '100-499', id: '100-499'},
@@ -98,25 +98,16 @@ Component({
       if(val.detail.length > 0) {
         let str = val.detail[0]
         let end = val.detail[1]
-        if(val.currentTarget.id == "price") {
-          this.setData({
-            priceAndCount: {
-              strPrice: str,
-              endPrice: end
-            }
-          })
-        } else {
-          this.setData({
-            priceAndCount: {
-              strCount: str,
-              endCount: end
-            }
-          })
-        }
+        let key = val.currentTarget.id
+        let obj = this.data.priceAndCount
+        obj = {...obj, ['str' + key]: str, ['end' + key]: end}
+        this.setData({
+          priceAndCount: obj
+        })
       }
     },
     handleReset() {
-      let list = ['threeCategory','brandId','countryId','deliveryType','price','count']
+      let list = ['threeCategory','brandId','countryId','deliveryType','Price','Count']
       list.forEach(item => {
         this.selectComponent(`#${item}`).setData({
           pitchOnList: []

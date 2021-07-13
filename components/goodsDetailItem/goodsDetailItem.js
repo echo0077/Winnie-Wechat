@@ -9,6 +9,7 @@ Component({
       value: [],
       observer: function (newVal, oldVal, changedPath) {
         if(newVal.hasOwnProperty('imgList')) {
+          console.log(newVal);
           let carouselImg = this.data.carouselImg
           let detailImg = this.data.detailImg
           newVal.imgList.forEach(item => {
@@ -20,7 +21,8 @@ Component({
           })
           this.setData({
             carouselImg: carouselImg,
-            detailImg: detailImg
+            detailImg: detailImg,
+            goods: newVal.goods
           })
         }
       }
@@ -34,6 +36,7 @@ Component({
     indicatorActive: '#9f2e33',
     carouselImg: [],
     detailImg: [],
+    goods: {}
   },
 
   /**
@@ -41,10 +44,11 @@ Component({
    */
   methods: {
     goBack() {
-      wx.navigateBack({
-        delta: 1
+      let route = wx.getStorageSync("lastRoute");
+      console.log(route);
+      wx.redirectTo({
+        url: '../../searchList/searchGoods/searhGoods'
       })
-  
   }
   }
 })

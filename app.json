@@ -8,8 +8,6 @@
     "pages/mine/mine",
     "pages/searchList/searchPage/searchPage",
     "pages/searchList/goodsDetails/goodsDetails"
-    
-    
   ],
   "tabBar": {
     "color": "#a9a9a9",

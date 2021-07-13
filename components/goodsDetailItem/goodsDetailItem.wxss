@@ -9,6 +9,7 @@
   position: fixed;
   z-index: 1;
   width: 100%;
+  background-color: #fff;
 }
 .icon-fanhui{
   margin-left: 30rpx;
@@ -22,15 +23,59 @@
   justify-content: space-between;
 }
 .content-box{
-  margin-top: 80rpx;
+  padding-top: 80rpx;
 }
 .content-carousel{
-  border-bottom: 1rpx solid #ccc;
+  background-color: #fff;
 }
 .carousel-item{
   height: 653rpx;
+  border-bottom: 1rpx solid #ccc;
 }
 .carousel-img{
   height: 100%;
   width: 100%;
+}
+.content-text{
+  padding: 30rpx;
+  border-bottom: 1rpx solid #ccc;
+  padding-bottom: 20rpx;
+}
+.content-title{
+  font-size: 34rpx;
+}
+.goods-price{
+  color: red;
+  margin-top: 30rpx;
+  font-size: 34rpx;
+}
+.goods-market-price{
+  font-size: 24rpx;
+  color: #bbb;
+}
+.country-box{
+  display: flex;
+  vertical-align: middle;
+}
+.country-img{
+  width: 60rpx;
+  height: 40rpx;
+  margin: 15rpx 10rpx 0 0;
+}
+.country-name{
+  font-size: 24rpx;
+  color: #bbb;
+  line-height: 60rpx;
+}
+.goods-prams-box{
+ height: 200rpx;
+}
+.port-dispatch{
+  height: 80rpx;
+  margin: 40rpx 0;
+  padding: 0 20rpx;
+  background-color: #fff;
+  border-top: 1rpx solid #bbb;
+  border-bottom: 1rpx solid #bbb;
+  line-height: 80rpx;
 }

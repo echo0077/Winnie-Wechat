@@ -28,6 +28,8 @@ Component({
    */
   methods: {
     goDetail(e) {
+      let pages = getCurrentPages();
+      wx.setStorageSync("lastRoute", pages[0].route);
       let goodsId = e.currentTarget.dataset.goodsno
       wx.redirectTo({
         url: '../goodsDetails/goodsDetails?goodsNo=' + goodsId
