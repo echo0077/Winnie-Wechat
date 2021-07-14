@@ -29,10 +29,23 @@
       </view>
     </view>
     <view class="goods-prams-box">
-    <view class="port-dispatch">
-      配送至：
-    </view>
-    <view></view>
+      <view class="port-dispatch">
+        配送至：
+        <my-icon type="dizhi" size="44" color="#ccc" class="icon-test"/>
+        <text class="dispatch-text">广东省 广州</text>
+        <my-icon type="xiangyou" size="30" color="#000" class="icon-xiangyou"/>
+      </view>
+      <view class="port-dispatch goods-prams">
+        <view class="goods-prams-title">说明：</view>
+        <view class="goods-prams-content-box">
+          <view wx:for="{{goodsPrams}}" wx:key="{{index}}" class="goods-prams-content">
+            <view class="goods-circles-box">
+              <view class="circles-box"></view>
+            </view>
+            <text>{{item}}</text>
+          </view>
+        </view>
+      </view>
     </view>
   </view>
 </view>

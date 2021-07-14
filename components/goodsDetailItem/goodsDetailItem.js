@@ -36,7 +36,8 @@ Component({
     indicatorActive: '#9f2e33',
     carouselImg: [],
     detailImg: [],
-    goods: {}
+    goods: {},
+    goodsPrams: ['商品税费', '该商品免运费', '100%正品保证', '假一赔十']
   },
 
   /**
