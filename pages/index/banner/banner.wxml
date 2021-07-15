@@ -1,5 +1,5 @@
 <!--pages/index/banner/banner.wxml-->
-<view>
+<view style="padding-top: {{heiPadding}}px;">
   <view>
     <view>
       <input class="weui-input" placeholder="囤货" bindtap="focuInput" data-current="{{searchKey}}"/>

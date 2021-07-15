@@ -1,5 +1,5 @@
 <!--pages/searchList/searchPage/screenGoods/screenGoods.wxml-->
-<view style="width: 100%;">
+<view style="width: 100%; padding-top: {{heiPadding}}px;">
   <scroll-view scroll-y="true" style="height: 1300rpx;">
     <view wx:for="{{screenList}}" wx:key='index' class="screen-list-box">
       <view class="title-box">

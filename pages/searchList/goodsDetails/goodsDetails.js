@@ -15,7 +15,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let param = {goodsNo: options.goodsNo || 'MIS7714'}
+    let param = {goodsNo: options.goodsNo || 'MIS3311'}
     getDetailMo(param).then(res => {
       this.setData({
         detailList: res.data.result

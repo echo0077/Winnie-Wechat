@@ -1,14 +1,16 @@
 <!--pages/searchList/searchList.wxml-->
-<view>
-  <view>
+<view class="search-page-box">
+  <navbar showNav="{{false}}"></navbar>
+  <view class="search-box"  style="padding-top: {{heiPadding}}px;">
+    <my-icon type="fanhui" size="50" color="#000" class="icon-fanhui" bindtap="navBack"/>
     <input class="weui-input" value="{{hotSearch}}" bindinput="getValue"/>
-    <my-icon type="sousuo" size="50" color="#666" class="icon-sousuo-box" bindtap="toSearchgoods" data-searchKey="{{hotSearch}}"/>
     <my-icon 
       type="qingchu" size="30" color="#666"
       class="icon-qingchu-box"
       wx:if="{{hotSearch != ''}}" 
       bindtap="clearValue"
     />
+    <my-icon type="sousuo" size="50" color="#666" class="icon-sousuo-box" bindtap="toSearchgoods" data-searchKey="{{hotSearch}}"/>
   </view>
   <view class="hotSearch-content">
     <view style="margin: 30rpx">热门搜索</view>
@@ -16,15 +18,15 @@
       <view wx:for="{{hotSearchList}}" wx:key="id" class="hot-key-text" bindtap="toSearchgoods" data-searchKey="{{item.linkContent}}">{{item.linkContent}}</view>
     </view>
   </view>
-  <view>
-    <view class="line"></view>
+  <view class="histry-box">
     <view class="hist-box">
-      <text>历史记录</text>
-      <text class="mini-btn" bindtap="clearTextSearch">清空记录</text>
+      <view>历史记录</view>
+      <view class="mini-btn" bindtap="clearTextSearch">清空记录</view>
     </view>
     <view>
       <view wx:for="{{textSearch}}" wx:key="index" class="linkContent-item" bindtap="toSearchgoods" data-searchKey="{{item}}">{{item}}</view>
     </view>
   </view>
 </view>
+
 

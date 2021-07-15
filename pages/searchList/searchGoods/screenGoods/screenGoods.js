@@ -1,4 +1,5 @@
 // pages/searchList/searchPage/screenGoods/screenGoods.js
+const App = getApp();
 Component({
   /**
    * 组件的属性列表
@@ -75,7 +76,8 @@ Component({
       endPrice: '',
       strCount: '',
       endCount: ''
-    }
+    },
+    heiPadding: App.globalData.navHeight
   },
 
   /**

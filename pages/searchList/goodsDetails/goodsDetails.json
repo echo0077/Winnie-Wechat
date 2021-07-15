@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "goodsDetailItem": "../../../components/goodsDetailItem/goodsDetailItem"
+    "goodsDetailItem": "../../../components/goodsDetailItem/goodsDetailItem",
+    "navbar": "/components/navbar"
   }
 }

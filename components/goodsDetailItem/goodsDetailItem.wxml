@@ -1,10 +1,8 @@
-<view style="background: #f8f9fc">
+<view style="background: #f8f9fc; padding-top: {{heiPadding}}px;">
   <view class="header-box">
-    <my-icon type="fanhui" size="50" color="#000" class="icon-fanhui" bindtap="goBack"/>
-    <text style="font-size: 34rpx">商品详情</text>
     <view class="top-right">
-      <my-icon type="shouye" size="50" color="#000" />
-      <my-icon type="gouwuche" size="50" color="#000" />
+      <my-icon type="shouye" size="50" color="#000" class="icon-shouye icon-box" bindtap="goHome"/>
+      <my-icon type="gouwuche" size="50" color="#000" class="icon-box"/>
     </view>
   </view>
   <view class="content-box">
@@ -12,7 +10,7 @@
       <swiper indicator-dots="{{true}}" indicator-active-color="{{indicatorActive}}" class="carousel-item">
         <block wx:for="{{carouselImg}}" wx:key="index">
           <swiper-item>
-            <image src="{{item.imgUrl}}" class="carousel-img"></image>
+            <image src="{{item.imgUrl}}" class="carousel-img" mode="widthFix"></image>
           </swiper-item>
         </block>
       </swiper>
@@ -29,7 +27,7 @@
       </view>
     </view>
     <view class="goods-prams-box">
-      <view class="port-dispatch">
+      <view class="port-dispatch port" bindtap="getAddress">
         配送至：
         <my-icon type="dizhi" size="44" color="#ccc" class="icon-test"/>
         <text class="dispatch-text">广东省 广州</text>
@@ -38,14 +36,48 @@
       <view class="port-dispatch goods-prams">
         <view class="goods-prams-title">说明：</view>
         <view class="goods-prams-content-box">
-          <view wx:for="{{goodsPrams}}" wx:key="{{index}}" class="goods-prams-content">
-            <view class="goods-circles-box">
-              <view class="circles-box"></view>
-            </view>
-            <text>{{item}}</text>
+          <view wx:for="{{goodsPrams}}" wx:key="index" class="goods-prams-content">
+            <view class="circles-box"></view>
+            <text style="margin-left: 20rpx;">{{item}}</text>
           </view>
         </view>
+        <my-icon type="xiangyou" size="30" color="#000" class="icon-xiangyou" style="top: 50rpx;"/>
       </view>
     </view>
+    <view class="goods-detail-content">
+      <view class="detail-title-box">
+        <view class="detail-title-line"></view>
+        <view class="detail-title">品牌详情</view>
+      </view>
+      <view class="detail-content">
+        全球商品一站式采购代发，主营美妆/个护/食品/保健品/日用品等品类,国内领先主流跨境电商平台的日系产品供应者。
+        设有东京、电商平台的日系产品供应者。设有东京、香港、浙江三个中心。东京：采购与仓储 ; 
+        香港：仓储与BD ; 浙江：运营与购与仓储 ; 香港：仓储与BD ;
+      </view>
+      <view class="detail-img-box">
+        <image src="{{goods.goodsBrand.brandLogo}}" class="brand-logo"  mode="widthFix"></image>
+      </view>
+      <navigator 
+        url="../searchGoods/searhGoods?searchkey={{goods.goodsBrand.brandName}}" 
+        class="see-brand"
+      >查看该品牌所有单品></navigator>
+    </view>
+    <view class="goods-img-smg">
+      <view class="goods-smg">商品图文说明:</view>
+      <image wx:for="{{detailImg}}" wx:key="index" src="{{item.imgUrl}}" class="goods-img-box" mode="widthFix"></image>
+    </view>
+  </view>
+  <view class="detail-footer-box">
+    <view class="flex_1 icon-footer-box">
+      <view class="icon-box">
+        <my-icon type="kefu" size="40" color="#000"/>客服
+      </view>
+      <view class="icon-box">
+        <my-icon type="shoucang" size="40" color="#000"/>收藏
+      </view>
+      
+    </view>
+    <view class="flex_1 add-cart">加入购物车</view>
+    <view class="flex_1 add-cart go-buy">立即购买</view>
   </view>
 </view>

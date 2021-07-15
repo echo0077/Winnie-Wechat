@@ -1,4 +1,5 @@
 <!--index.wxml-->
 <view>
+<navbar pageName="唯妮海购" showNav="{{false}}" bgColor="#a9a9a9"></navbar>
 <banner dataBanner='{{bannerList}}' searchKey='{{searchKey}}'/>
 </view>

@@ -1,25 +1,36 @@
 /* pages/searchList/searchList.wxss */
+.search-page-box{
+  background: #f8f9fc; 
+  height: 100%;
+}
+.search-box{
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #fff;
+}
 .weui-input{
   height: 80rpx;
   box-sizing: border-box;
-  width: 85%;
-  margin: 30rpx 0 0 20rpx;
+  width: 80%;
+  margin-left: 14rpx;
   background: #ddd;
   padding-left: 20rpx;
   position: relative;
 }
-.icon-sousuo-box, .icon-qingchu-box{
-  position: absolute;
-  top: 40rpx;
-  right: 25rpx;
-}
 .icon-qingchu-box{
-  right: 115rpx;
-  top: 45rpx;
   z-index: 99;
+  margin-left: -50rpx;
+  margin-right: 30rpx;
+}
+.histry-box{
+  padding: 0 20rpx;
+  background: #fff;
 }
 .hotSearch-content{
   overflow: hidden;
+  background: #fff;
+  margin-bottom: 20rpx;
 }
 .hot-key-text{
   float: left;
@@ -29,16 +40,12 @@
   border-radius: 15rpx;
   font-size: 28rpx;
 }
-.line{
-  width: 100%;
-  height: 20rpx;
-  background: #eee;
-  margin-top: 20rpx;
-}
 .hist-box{
   border-bottom: 1rpx solid #ccc;
-  padding-bottom: 25rpx;
-  line-height: 50rpx;
+  height: 100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .mini-btn{
   color: #C0C0C0;
@@ -52,5 +59,4 @@
   height: 70rpx;
   line-height: 70rpx;
   border-bottom: 1rpx solid #ccc;
-  margin-left: 20rpx;
 }

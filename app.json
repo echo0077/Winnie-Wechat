@@ -1,13 +1,14 @@
 {
   "pages": [
-    "pages/searchList/searchGoods/searhGoods",
+    "pages/searchList/goodsDetails/goodsDetails",
+    "pages/searchList/searchPage/searchPage",
     "pages/index/index",
     "pages/index/banner/banner",
     "pages/classify/classify",
     "pages/shopCart/shopCart",
     "pages/mine/mine",
-    "pages/searchList/searchPage/searchPage",
-    "pages/searchList/goodsDetails/goodsDetails"
+    "pages/searchList/searchGoods/searhGoods"
+    
   ],
   "tabBar": {
     "color": "#a9a9a9",
@@ -44,6 +45,7 @@
     "my-icon": "/components/my-icon/index"
   },
   "window": {
+    "navigationStyle": "custom",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#a9a9a9",
     "navigationBarTitleText": "唯妮海购",

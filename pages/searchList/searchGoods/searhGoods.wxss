@@ -2,14 +2,13 @@
 .goods-big-box{
   background: #F5F5F5;
   position: relative;
-  padding: 0;
-  margin: 0;
+  height: 100%;
 }
 .weui-input{
   height: 80rpx;
   box-sizing: border-box;
   width: 90%;
-  margin: 30rpx 0 0 30rpx;
+  margin-left: 30rpx;
   background: #ddd;
   padding-left: 20rpx;
   position: relative;
@@ -24,7 +23,7 @@
 }
 .icon-sousuo-box{
   position: absolute;
-  top: 45rpx;
+  top: 20rpx;
   left: 40rpx;
 }
 .goods-list-box{

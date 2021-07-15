@@ -1,4 +1,5 @@
 // pages/searchList/searchList.js
+const App = getApp();
 const { getHotSearch } = require("../../../api/home") 
 Page({
 
@@ -6,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    heiPadding: App.globalData.navHeight,
     hotSearch: '',
     hotSearchList: [],
     textSearch: []
@@ -35,6 +37,11 @@ Page({
     wx.setStorageSync("searchData", list);
     wx.navigateTo({
       url: '../searchGoods/searhGoods?searchkey=' + searchkey
+    })
+  },
+  navBack() {
+    wx.switchTab({
+      url: '/pages/index/index'
     })
   },
   

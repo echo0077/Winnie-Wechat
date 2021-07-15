@@ -1,5 +1,5 @@
 // pages/searchList/searchGoods/searhGoods.js
-
+const App = getApp();
 const {
   searchGoods,
   getSolrGroup
@@ -10,6 +10,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    heiPadding: App.globalData.navHeight,
     searchkey: '',
     listTitle: [{
       key: '销量',

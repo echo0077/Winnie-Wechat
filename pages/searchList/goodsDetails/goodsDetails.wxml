@@ -1,2 +1,6 @@
 <!--pages/searchList/goodsDetails/goodsDetails.wxml-->
+<view>
+<navbar pageName="商品详情" showNav="{{true}}" bgColor="#fff"></navbar>
 <goodsDetailItem detailList="{{detailList}}"></goodsDetailItem>
+</view>
+

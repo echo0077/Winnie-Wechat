@@ -1,4 +1,5 @@
 // components/goodsDetails/goodsDetails.js
+const App = getApp();
 Component({
   /**
    * 组件的属性列表
@@ -9,7 +10,6 @@ Component({
       value: [],
       observer: function (newVal, oldVal, changedPath) {
         if(newVal.hasOwnProperty('imgList')) {
-          console.log(newVal);
           let carouselImg = this.data.carouselImg
           let detailImg = this.data.detailImg
           newVal.imgList.forEach(item => {
@@ -33,6 +33,7 @@ Component({
    * 组件的初始数据
    */
   data: {
+    heiPadding: App.globalData.navHeight,
     indicatorActive: '#9f2e33',
     carouselImg: [],
     detailImg: [],
@@ -44,12 +45,13 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    goBack() {
-      let route = wx.getStorageSync("lastRoute");
-      console.log(route);
-      wx.redirectTo({
-        url: '../../searchList/searchGoods/searhGoods'
+    getAddress() {
+      
+    },
+    goHome() {
+      wx.switchTab({
+        url: '/pages/index/index'
       })
-  }
+    }
   }
 })

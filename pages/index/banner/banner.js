@@ -1,4 +1,5 @@
 // pages/index/banner/banner.js
+const App = getApp();
 Component({
   /**
    * 组件的属性列表
@@ -15,9 +16,7 @@ Component({
     searchKey: {
       type: String,
       value: '',
-      observer: function (newVal, oldVal, changedPath) {
-        
-      }
+      observer: function (newVal, oldVal, changedPath) {}
     }
   },
 
@@ -25,7 +24,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-
+    heiPadding: App.globalData.navHeight
   },
 
   /**

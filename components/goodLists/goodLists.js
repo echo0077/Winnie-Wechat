@@ -1,4 +1,5 @@
 // components/goodList/goodLists.js
+const App = getApp();
 Component({
   /**
    * 组件的属性列表
@@ -20,7 +21,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-
+    heiPadding: App.globalData.navHeight + 92
   },
 
   /**
@@ -28,10 +29,8 @@ Component({
    */
   methods: {
     goDetail(e) {
-      let pages = getCurrentPages();
-      wx.setStorageSync("lastRoute", pages[0].route);
       let goodsId = e.currentTarget.dataset.goodsno
-      wx.redirectTo({
+      wx.navigateTo({
         url: '../goodsDetails/goodsDetails?goodsNo=' + goodsId
       })
     },

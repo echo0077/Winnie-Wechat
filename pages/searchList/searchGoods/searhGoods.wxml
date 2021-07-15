@@ -1,11 +1,12 @@
 <!--pages/searchList/searchGoods/searhGoods.wxml-->
 <view class="goods-big-box">
+  <navbar showNav="{{false}}"></navbar>
   <view class="screen-box-shade" style="{{isShowScreen ? 'display: block;' : 'display: none;'}}" bindtap="clickShade"></view>
   <view class="screen-box {{isShowScreen ? 'show-screen-box' : 'hide-screen-box'}}">
     <screenGoods screenData='{{screenData}}' bind:sureInfo="screenInfo"/> 
   </view>
-  <view class="goods-list-top">
-    <view>
+  <view class="goods-list-top"  style="padding-top: {{heiPadding}}px;">
+    <view style="position: relative;">
       <input class="weui-input" value="{{searchkey}}" bindtap="golastPage" />
       <my-icon type="sousuo" size="40" color="#666" class="icon-sousuo-box" />
     </view>

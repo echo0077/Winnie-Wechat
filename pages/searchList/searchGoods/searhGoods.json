@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "screenGoods": "./screenGoods/screenGoods",
-    "goodLists": "../../../components/goodLists/goodLists"
+    "goodLists": "../../../components/goodLists/goodLists",
+    "navbar": "/components/navbar"
   }
 }
