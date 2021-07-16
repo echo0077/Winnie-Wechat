@@ -1,7 +1,7 @@
 <!--pages/index/banner/banner.wxml-->
 <view style="padding-top: {{heiPadding}}px;">
   <view>
-    <view>
+    <view style="position: relative;">
       <input class="weui-input" placeholder="囤货" bindtap="focuInput" data-current="{{searchKey}}"/>
       <my-icon type="sousuo" size="40" color="#666" class="icon-sousuo-box" />
       <my-icon type="duanxin" size="50" color="#666" class="icon-duanxin-box" />

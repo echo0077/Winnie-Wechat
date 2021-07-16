@@ -211,7 +211,7 @@
   position: fixed;
   bottom: 0;
   width: 100%;
-  height: 35%;
+  height: 360px;
   background: #fff;
   border-top: 1rpx solid #eee;
 }
@@ -220,7 +220,7 @@
   transition: bottom 1s, transform 1s;
 }
 .product-dec-hide{
-  bottom: -286px;
+  bottom: -360px;
   transition: bottom 1s, transform 1s;
 }
 .msg-shadow-box{

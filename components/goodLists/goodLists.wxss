@@ -24,7 +24,7 @@
   margin: auto;
 }
 .goods-list-text{
-  margin: 0 10rpx;
+  margin: 0 20rpx;
 }
 .goods-list-type{
   color: #ccc;
@@ -42,7 +42,7 @@
 }
 .goods-list-price{
   position: absolute;
-  bottom: 20rpx;
+  bottom: 40rpx;
 }
 .marketPrice{
   font-size: 28rpx;

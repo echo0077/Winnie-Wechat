@@ -12,7 +12,7 @@
 .weui-input{
   height: 80rpx;
   box-sizing: border-box;
-  width: 80%;
+  width: 78%;
   margin-left: 14rpx;
   background: #ddd;
   padding-left: 20rpx;

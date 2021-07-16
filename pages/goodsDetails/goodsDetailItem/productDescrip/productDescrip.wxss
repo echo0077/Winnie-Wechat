@@ -9,7 +9,7 @@
 }
 .close-msg{
   position: absolute;
-  right: 60rpx;
+  right: 10rpx;
   font-size: 40rpx;
   width: 80rpx;
   height: 80rpx;

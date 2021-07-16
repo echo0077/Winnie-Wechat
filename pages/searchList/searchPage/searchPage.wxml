@@ -2,7 +2,7 @@
 <view class="search-page-box">
   <navbar showNav="{{false}}"></navbar>
   <view class="search-box"  style="padding-top: {{heiPadding}}px;">
-    <my-icon type="fanhui" size="50" color="#000" class="icon-fanhui" bindtap="navBack"/>
+    <my-icon type="fanhui" size="50" color="#000" class="icon-fanhui" bindtap="navBack" style="margin-left: 18rpx;"/>
     <input class="weui-input" value="{{hotSearch}}" bindinput="getValue"/>
     <my-icon 
       type="qingchu" size="30" color="#666"
