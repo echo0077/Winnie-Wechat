@@ -1,0 +1,16 @@
+<!--pages/goodsDetails/goodsDetailItem/productDescrip/productDescrip.wxml-->
+<view>
+  <view class="goods-msg-header">
+    <view>商品说明</view>
+    <my-icon type="guanbi" size="30" color="#000" class="close-msg" bindtap="isHidewMsg"/>
+  </view>
+  <view class="goods-msg-content">
+    <view wx:for="{{goodsMsgData}}" wx:key="index" style="margin-bottom: 14rpx;">
+      <view class="instruction-box-header">
+        <view class="instruction-box"></view>
+        <text>{{item.title}}</text>
+      </view>
+      <view class="instruction-box-content">{{item.msg}}</view>
+    </view>
+  </view>
+</view>

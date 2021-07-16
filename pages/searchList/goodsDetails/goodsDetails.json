@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "goodsDetailItem": "../../../components/goodsDetailItem/goodsDetailItem",
-    "navbar": "/components/navbar"
-  }
-}

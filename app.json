@@ -1,14 +1,13 @@
 {
   "pages": [
-    "pages/searchList/goodsDetails/goodsDetails",
-    "pages/searchList/searchPage/searchPage",
     "pages/index/index",
     "pages/index/banner/banner",
     "pages/classify/classify",
     "pages/shopCart/shopCart",
     "pages/mine/mine",
-    "pages/searchList/searchGoods/searhGoods"
-    
+    "pages/searchList/searchGoods/searhGoods",
+    "pages/searchList/searchPage/searchPage",
+    "pages/goodsDetails/goodsDetails"
   ],
   "tabBar": {
     "color": "#a9a9a9",

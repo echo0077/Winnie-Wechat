@@ -2,10 +2,6 @@
 .header-box{
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  height: 160rpx;
-  position: fixed;
   z-index: 1;
   width: 10%;
   background-color: #fff;
@@ -15,13 +11,6 @@
 .icon-fanhui{
   margin-left: 30rpx;
   width: 120rpx;
-}
-.top-right{
-  display: flex;
-  flex-wrap: wrap;
-  margin-right: 30rpx;
-  width: 120rpx;
-  justify-content: space-between;
 }
 .icon-box{
   width: 80rpx;
@@ -217,4 +206,27 @@
   background: #9f2e33;
   color: #fff;
   border-right: none  ;
+}
+.product-dec-box{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 35%;
+  background: #fff;
+  border-top: 1rpx solid #eee;
+}
+.product-dec-show{
+  bottom: 0px;
+  transition: bottom 1s, transform 1s;
+}
+.product-dec-hide{
+  bottom: -286px;
+  transition: bottom 1s, transform 1s;
+}
+.msg-shadow-box{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
 }

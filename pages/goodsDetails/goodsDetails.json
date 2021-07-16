@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "goodsDetailItem": "/pages/goodsDetails/goodsDetailItem/goodsDetailItem",
+    "navbar": "/components/navbar",
+    "shopAddress": "../goodsDetails/shopAddress/shopAddress"
+  }
+}

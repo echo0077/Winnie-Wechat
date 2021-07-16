@@ -26,6 +26,9 @@ Component({
           })
         }
       }
+    },
+    addressObj: {
+      type: Object
     }
   },
 
@@ -38,7 +41,10 @@ Component({
     carouselImg: [],
     detailImg: [],
     goods: {},
-    goodsPrams: ['商品税费', '该商品免运费', '100%正品保证', '假一赔十']
+    goodsPrams: ['商品税费', '该商品免运费', '100%正品保证', '假一赔十'],
+    showAddress: false,
+    addressObj: {},
+    showMsg: false,
   },
 
   /**
@@ -46,11 +52,36 @@ Component({
    */
   methods: {
     getAddress() {
-      
+      this.setData({
+        showAddress: true
+      })
+      this.triggerEvent('getAddress', this.data.showAddress)
     },
     goHome() {
       wx.switchTab({
         url: '/pages/index/index'
+      })
+    },
+    goToLook() {
+      let searchkey = this.data.goods.goodsBrand.brandName
+      console.log(searchkey);
+      wx.navigateTo({
+        url: '../searchList/searchGoods/searhGoods?searchkey=' + searchkey
+      })
+    },
+    isShowMsg() {
+      this.setData({
+        showMsg: true
+      })
+    },
+    isHidewMsg() {
+      this.setData({
+        showMsg: false
+      })
+    },
+    showMsg(e) {
+      this.setData({
+        showMsg: e.detail
       })
     }
   }

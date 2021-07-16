@@ -31,7 +31,7 @@ Component({
     goDetail(e) {
       let goodsId = e.currentTarget.dataset.goodsno
       wx.navigateTo({
-        url: '../goodsDetails/goodsDetails?goodsNo=' + goodsId
+        url: '../../../pages/goodsDetails/goodsDetails?goodsNo=' + goodsId
       })
     },
   }

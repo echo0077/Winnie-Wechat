@@ -1,6 +1,6 @@
 <!--pages/searchList/searchGoods/searhGoods.wxml-->
 <view class="goods-big-box">
-  <navbar showNav="{{false}}"></navbar>
+  <navbar showNav="{{true}}"></navbar>
   <view class="screen-box-shade" style="{{isShowScreen ? 'display: block;' : 'display: none;'}}" bindtap="clickShade"></view>
   <view class="screen-box {{isShowScreen ? 'show-screen-box' : 'hide-screen-box'}}">
     <screenGoods screenData='{{screenData}}' bind:sureInfo="screenInfo"/> 

@@ -1,0 +1,20 @@
+<!--pages/goodsDetails/goodsDetails.wxml-->
+<view style="height: 100%;">
+  <navbar pageName="商品详情" showNav="{{true}}" bgColor="#fff" style="z-index: 2;"></navbar>
+  <goodsDetailItem 
+    detailList="{{detailList}}" 
+    style="z-index: 1;" 
+    bind:getAddress="showAddress"
+    addressObj="{{addressObj}}"
+  ></goodsDetailItem>
+  <view class="address-shadow-box" wx:if="{{isShowAddress}}" bindtap="hideShade" style="z-index: 3;"></view>
+  <shopAddress 
+    class="address-box {{isShowAddress ? 'show-address-box' : 'hide-address-box'}}" 
+    style="z-index: 4;" 
+    bind:getAddress="showAddress" 
+    bind:addressInfo="addressinfo" 
+    showAddress="{{showAddress}}"
+    addressList="{{addressData}}"
+    widheight="{{widheight}}"
+  ></shopAddress>
+</view>

@@ -1,0 +1,27 @@
+<!--pages/goodsDetails/shopAddress/shopAddress.wxml-->
+<view class="goods-address-box" style="padding-top: {{heiPadding}}px;">
+  <view class="address-big-box" bindtap="showShade">
+    <view class="address-to-title">配送至</view>
+    <scroll-view scroll-y="true" style="height: {{widheight-heiPadding-60}}px;">
+      <view wx:if="{{showPro}}">
+        <view 
+          wx:for="{{addressData}}" 
+          wx:key="index"
+          bindtap="showCity"
+          data-pro="{{item.pro}}"
+          class="pro-item-box"
+        >{{item.pro}}</view>
+      </view>
+      <view wx:else>
+        <view 
+          class="pro-item-box" 
+          wx:for="{{addressCity}}" 
+          wx:for-item="itm" 
+          wx:key="index"
+          bindtap="sureAddress"
+          data-city="{{itm}}"
+        >{{itm}}</view>
+      </view>
+    </scroll-view>
+  </view>
+</view>
