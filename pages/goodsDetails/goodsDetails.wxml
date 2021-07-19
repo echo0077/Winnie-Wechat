@@ -10,6 +10,7 @@
   <view class="address-shadow-box" wx:if="{{isShowAddress}}" bindtap="hideShade" style="z-index: 3;"></view>
   <shopAddress 
     class="address-box {{isShowAddress ? 'show-address-box' : 'hide-address-box'}}" 
+    id="address-box"
     style="z-index: 4;" 
     bind:getAddress="showAddress" 
     bind:addressInfo="addressinfo" 

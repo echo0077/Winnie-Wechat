@@ -14,7 +14,7 @@
             </block>
           </swiper>
           <view class="content-text">
-            <view class="content-title">{{goods.goodsName}}</view>
+            <view class="content-title vertical-box">{{goods.goodsName}}</view>
             <view class="goods-price"><text>￥{{goods.mallPrice}}</text>~<text>{{goods.maxPrice}}</text></view>
             <view class="goods-market-price">
               价格：<text style="text-decoration: line-through;">￥{{goods.marketPrice}}</text>

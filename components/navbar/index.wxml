@@ -1,6 +1,6 @@
 <!--components/navbar/index.wxml-->
 <view class="navbar custom-class" style='height:{{navHeight}}px;background-color:{{bgColor}}'>
-  <view wx:if="{{showNav}}" class="navbar-action-wrap navbar-action-group row item-center" style='top:{{navTop}}px;background-color:rgba(255,255,255,.6)'>
+  <view wx:if="{{showNav}}" class="navbar-action-wrap navbar-action-group row item-center" style='top:{{navTop}}px;'>
     <my-icon type="fanhui" size="50" color="#000" class="icon-fanhui" bindtap="navBack"/>
   </view>
   <view class='navbar-title' style='top:{{navTop}}px'>

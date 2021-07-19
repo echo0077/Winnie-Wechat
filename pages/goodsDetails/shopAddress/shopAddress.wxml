@@ -2,6 +2,7 @@
 <view class="goods-address-box" style="padding-top: {{heiPadding}}px;">
   <view class="address-big-box" bindtap="showShade">
     <view class="address-to-title">配送至</view>
+    <my-icon type="fanhui" size="50" color="#000" class="icon-fanhui" bindtap="goBack" wx:if="{{!showPro}}"/>
     <scroll-view scroll-y="true" style="height: {{widheight-heiPadding-60}}px;">
       <view wx:if="{{showPro}}">
         <view 

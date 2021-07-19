@@ -123,6 +123,9 @@ Component({
           endPrice: '',
         }
       })
+      let priceAndCount = this.data.priceAndCount
+      let sureObj = { threeCategory: '', brandId: '', countryId: '', deliveryType: '', priceAndCount, key: true }
+      this.triggerEvent('sureInfo', sureObj)
     },
     sure() {
       let list = ['threeCategory','brandId','countryId','deliveryType']
@@ -131,9 +134,8 @@ Component({
         arr.push(this.selectComponent(`#${item}`).data.pitchOnList.join(','))
       })
       let priceAndCount = this.data.priceAndCount
-      let sureObj = { threeCategory: arr[0], brandId: arr[1], countryId: arr[2], deliveryType: arr[3], priceAndCount }
+      let sureObj = { threeCategory: arr[0], brandId: arr[1], countryId: arr[2], deliveryType: arr[3], priceAndCount, key: false }
       this.triggerEvent('sureInfo', sureObj)
-      this.handleReset()
     }
   }
 })

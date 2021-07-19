@@ -65,14 +65,14 @@ Page({
     },
     // 筛选数据 
     isShowScreen: false,
-    screenData: {}
+    screenData: {},
+    screenOldData: {},
   },
 
 /**
  * 页面上拉触底事件的处理函数
  */
   onReachBottom: function () {
-    console.log(this.selectComponent("#goodsList"));
     if (this.data.goodsList.length < this.data.goodsTotal) {
       let param = this.getParam()
       param.pageNum = param.pageNum + 1
@@ -100,7 +100,8 @@ Page({
     let param = this.getParam()
     getSolrGroup(param).then(res => {
       this.setData({
-        screenData: res.data.result
+        screenData: res.data.result,
+        screenOldData: res.data.result
       })
     })
   },
@@ -180,16 +181,23 @@ Page({
     let obj = Object.assign(this.data.searchGoodsData, list)
     this.setData({
       searchGoodsData: obj,
-      isShowScreen: false,
+      isShowScreen: list.key,
       goodsList: []
     }, function(){
       let param = this.getParam()
       this.getData(param)
-      getSolrGroup(param).then(res => {
+      if(list.key) {
+        let screenOldData = this.data.screenOldData
         this.setData({
-          screenData: res.data.result
+          screenData: screenOldData
         })
-      })
+      } else {
+        getSolrGroup(param).then(res => {
+          this.setData({
+            screenData: res.data.result
+          })
+        })
+      }
     })
   },
   /**

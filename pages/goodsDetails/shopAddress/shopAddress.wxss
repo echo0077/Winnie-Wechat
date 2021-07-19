@@ -4,6 +4,9 @@
   width: 100%;
   background: #fff;
 }
+.address-big-box{
+  position: relative;
+}
 .address-to-title{
   font-size: 36rpx;
   text-align: center;
@@ -17,4 +20,9 @@
   padding-left: 40rpx;
   border-bottom: 1rpx solid #eee;
   border-top: 1rpx solid #eee;
+}
+.icon-fanhui{
+  position: absolute;
+  top: 13px;
+  left: 20rpx;
 }

@@ -38,6 +38,11 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    goBack() {
+      this.setData({
+        showPro: true
+      })
+    },
     showCity(e) {
       let key = e.target.dataset.pro
       let arr = this.data.addressData

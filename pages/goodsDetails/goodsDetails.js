@@ -27,6 +27,9 @@ Page({
     this.setData({
       isShowAddress: false
     })
+    this.selectComponent("#address-box").setData({
+      showPro: true
+    })
   },
   addressinfo(e) {
     this.setData({
