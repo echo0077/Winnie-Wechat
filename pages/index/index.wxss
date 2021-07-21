@@ -1,19 +1,13 @@
 /**index.wxss**/
-.userinfo {
+.home-nar-box{
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #aaa;
+  margin-top: 40rpx;
 }
-
-.userinfo-avatar {
-  overflow: hidden;
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.home-nar{
+ flex: auto;
+ text-align: center;
 }
-
-.usermotto {
-  margin-top: 200px;
+.home-nar-img{
+  width: 100rpx;
+  height: 100rpx;
 }

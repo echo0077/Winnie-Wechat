@@ -166,8 +166,11 @@
 }
 .goods-img-smg{
   background: #fff;
-  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   width: 100%;
+  margin-bottom: 100rpx;
 }
 .goods-smg{
   height: 60rpx;

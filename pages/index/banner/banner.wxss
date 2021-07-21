@@ -1,5 +1,7 @@
 /* pages/index/banner/banner.wxss */
-@import'../../../components/my-icon/index.wxss';
+.banner-big-box{
+  border-bottom: 1rpx solid #ddd;
+}
 .swiper{
   height: 225px;
 }

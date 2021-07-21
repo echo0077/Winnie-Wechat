@@ -1,5 +1,5 @@
 <!--pages/index/banner/banner.wxml-->
-<view style="padding-top: {{heiPadding}}px;">
+<view style="padding-top: {{heiPadding}}px;" class="banner-big-box">
   <view>
     <view style="position: relative;">
       <input class="weui-input" placeholder="囤货" bindtap="focuInput" data-current="{{searchKey}}"/>
@@ -8,10 +8,10 @@
     </view>
   </view>
   <view class="swiper">
-    <swiper indicator-dots="{{true}}" autoplay="{{true}}" circular="{{true}}" class="swiper-box">
+    <swiper indicator-dots="{{true}}" autoplay="{{true}}" circular="{{true}}" class="swiper-box" indicator-active-color="#f05b1a">
       <block wx:for="{{dataBanner}}" wx:key="id">
         <swiper-item>
-          <image class="img-item" src="{{item.url}}"></image>
+          <image class="img-item" src="{{item.url}}" mode="widthFix"></image>
         </swiper-item>
       </block>
     </swiper>
