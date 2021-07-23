@@ -24,7 +24,9 @@ Page({
         title: '热卖',
         img: '../../image/homeNav/hot.png'
       },
-    ]
+    ],
+    specialList: [],
+    newSubject: []
   },
   // 事件处理函数
   bindViewTap() {},
@@ -33,7 +35,9 @@ Page({
       console.log(res.data);
       this.setData({
         bannerList: res.data.result.banner,
-        searchKey: res.data.result.hotSearch
+        searchKey: res.data.result.hotSearch,
+        newSubject: res.data.result.newSubject,
+        specialList: res.data.result.subject
        })
     })
   },

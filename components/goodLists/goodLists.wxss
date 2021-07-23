@@ -33,10 +33,6 @@
 }
 .goods-list-name{
   width: 100%;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
   font-size: 28rpx;
   margin-bottom: 6rpx;
 }

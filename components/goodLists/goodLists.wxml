@@ -6,7 +6,7 @@
     </view>
     <view class="goods-list-text">
       <view class="goods-list-type">{{item.deliveryType}}</view>
-      <view class="goods-list-name">{{item.goodsName}}</view>
+      <view class="goods-list-name two-vertical">{{item.goodsName}}</view>
       <view class="goods-list-price">
         <text style="color: red;">￥{{item.mallPrice}}</text>
         <text class="marketPrice">￥{{item.marketPrice}}</text>

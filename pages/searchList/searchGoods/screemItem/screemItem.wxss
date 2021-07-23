@@ -13,9 +13,9 @@
   font-size: 24rpx;
   line-height: 56rpx;
   margin: 10rpx;
-  text-overflow: ellipsis;
+  /* text-overflow: ellipsis;
   white-space: nowrap;
-  overflow: hidden;
+  overflow: hidden; */
   position: relative;
 }
 .screen-list-content-active{

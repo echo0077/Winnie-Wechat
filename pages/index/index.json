@@ -1,6 +1,8 @@
 {
   "usingComponents": {
+    "navbar": "/components/navbar/index",
     "banner": "./banner/banner",
-    "navbar": "/components/navbar/index"
+    "goodsGather": "./goodsGather/goodsGather",
+    "goodLists": "../../components/goodLists/goodLists"
   }
 }

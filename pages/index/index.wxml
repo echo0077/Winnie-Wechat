@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<view>
+<view class="index-box">
   <navbar pageName="唯妮海购" showNav="{{false}}" bgColor="#a9a9a9"></navbar>
   <banner dataBanner='{{bannerList}}' searchKey='{{searchKey}}'/>
   <view class="home-nar-box">
@@ -8,4 +8,11 @@
       <view>{{item.title}}</view>
     </view>
   </view>
+  <view  class="special-box">
+    <view wx:for="{{specialList}}" wx:key="index" class="special-content">
+      <image src="{{item.url}}"  class="special-img"></image>
+    </view>
+  </view>
+  <goodsGather newSubject="{{newSubject}}"/>
+  <goodLists />
 </view>

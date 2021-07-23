@@ -1,6 +1,10 @@
 // components/goodList/goodLists.js
 const App = getApp();
 Component({
+  options: {
+    // 这个配置决定是否由 `app.wxss` 和页面 `wxss` 中的样式定义来决定
+    addGlobalClass: true,
+  },
   /**
    * 组件的属性列表
    */

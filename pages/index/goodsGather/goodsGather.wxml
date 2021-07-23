@@ -1,0 +1,17 @@
+<!--pages/index/goodsGather/goodsGather.wxml-->
+<view>
+  <view wx:for="{{newSubject}}" wx:key="index" class="goods-content-box">
+    <view>
+      <image src="{{item.url}}" class="gather-img" mode="widthFix"></image>
+    </view>
+    <scroll-view scroll-x="{{true}}">
+      <view class="goods-list-box">
+        <view wx:for="{{item.goodsList}}" wx:for-item="itm" wx:key="index" class="goods-list-item">
+          <image src="{{itm.imgUrl}}" class="goods-img"></image>
+          <view class="goods-size two-vertical">{{itm.goodsName}}</view>
+          <view class="goods-price goods-size">￥{{itm.mallPrice}}</view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>

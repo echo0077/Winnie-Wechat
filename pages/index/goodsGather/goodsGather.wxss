@@ -1,0 +1,30 @@
+/* pages/index/goodsGather/goodsGather.wxss */
+.goods-content-box{
+  background: #fff;
+  margin-bottom: 20rpx;
+}
+.gather-img{
+  width: 100%;
+  height: auto;
+}
+.goods-list-box{
+  display: flex;
+  flex-wrap: nowrap;
+  height: 334rpx;
+}
+.goods-img{
+  width: 180rpx;
+  height: 180rpx;
+}
+.goods-list-item{
+  width: 180rpx;
+  height: 296rpx;
+  margin: 0 14rpx;
+}
+.goods-size{
+  font-size: 26rpx;
+  width: 178rpx;
+}
+.goods-price{
+  color: red;
+}
