@@ -1,6 +1,7 @@
 /**index.wxss**/
 .index-box{
   background: #f8f9fc;
+  position: relative;
 }
 .home-nar-box{
   display: flex;

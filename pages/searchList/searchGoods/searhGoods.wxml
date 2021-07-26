@@ -22,4 +22,5 @@
     </view>
   </view>
   <goodLists goodsList="{{goodsList}}" showBottom="{{showBottom}}" id="goodsList"></goodLists>
+  <goTop showToTop="{{showToTop}}"/>
 </view>

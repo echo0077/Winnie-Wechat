@@ -1,6 +1,6 @@
 // index.js
 // 获取应用实例
-const { getHomeList } = require("../../api/home") 
+const { getHomeList, indexHotList } = require("../../api/home") 
 const app = getApp()
 
 Page({
@@ -26,13 +26,16 @@ Page({
       },
     ],
     specialList: [],
-    newSubject: []
+    newSubject: [],
+    goodsList: [],
+    showBottom: false,
+    showToTop: false
   },
   // 事件处理函数
   bindViewTap() {},
   onLoad() {
     getHomeList().then(res => {
-      console.log(res.data);
+      console.log(res.data.result.newSubject);
       this.setData({
         bannerList: res.data.result.banner,
         searchKey: res.data.result.hotSearch,
@@ -40,7 +43,38 @@ Page({
         specialList: res.data.result.subject
        })
     })
+    indexHotList().then(res => {
+      res.data.result.forEach(item => {
+        switch (item.deliveryType) {
+          case 1:
+            return item.deliveryType = '保税区邮'
+          case 2:
+            return item.deliveryType = '香港直邮'
+          case 4:
+            return item.deliveryType = '海外直邮'
+          case 5:
+            return item.deliveryType = '国内发货'
+          default:
+            break;
+        }
+      })
+      this.setData({
+        goodsList: res.data.result,
+        showBottom: true
+      })
+    })
   },
   getUserProfile(e) {},
-  getUserInfo(e) {}
+  getUserInfo(e) {},
+  onPageScroll(e) {
+    if(e.scrollTop > 300) {
+      this.setData({
+        showToTop: true
+      })
+    } else {
+      this.setData({
+        showToTop: false
+      })
+    }
+  }
 })

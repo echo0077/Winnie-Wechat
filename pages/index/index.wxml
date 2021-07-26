@@ -14,5 +14,6 @@
     </view>
   </view>
   <goodsGather newSubject="{{newSubject}}"/>
-  <goodLists />
+  <goodLists goodsList="{{goodsList}}" showBottom="{{showBottom}}" isHome="{{true}}"/>
+  <goTop showToTop="{{showToTop}}"/>
 </view>

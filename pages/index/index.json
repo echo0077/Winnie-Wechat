@@ -3,6 +3,7 @@
     "navbar": "/components/navbar/index",
     "banner": "./banner/banner",
     "goodsGather": "./goodsGather/goodsGather",
-    "goodLists": "../../components/goodLists/goodLists"
+    "goodLists": "../../components/goodLists/goodLists",
+    "goTop": "../../components/goTop/goTop"
   }
 }

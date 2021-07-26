@@ -1,0 +1,6 @@
+/* components/goTop.wxss */
+.icon-dingbu-box{
+  position: fixed;
+  right: 10px;
+  bottom: 60px;
+}

@@ -1,5 +1,5 @@
 <!--pages/goodsDetails/goodsDetails.wxml-->
-<view style="height: 100%;">
+<view style="height: 100%; position: relative;">
   <navbar pageName="商品详情" showNav="{{true}}" bgColor="#fff" style="z-index: 2;"></navbar>
   <goodsDetailItem 
     detailList="{{detailList}}" 
@@ -18,4 +18,5 @@
     addressList="{{addressData}}"
     widheight="{{widheight}}"
   ></shopAddress>
+  <goTop showToTop="{{showToTop}}" />
 </view>

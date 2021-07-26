@@ -1,5 +1,5 @@
 <!--components/goodList/goodLists.wxml-->
-<view class="goods-list-content-box" style="padding-top: {{heiPadding}}px;">
+<view class="goods-list-content-box" style="padding-top: {{isHome ? 0 : heiPadding}}px;">
   <view wx:for="{{goodsList}}" wx:key="index" class="goods-list-content"  bindtap="goDetail" data-goodsNo="{{item.goodsNo}}">
     <view class="goods-list-img-box">
       <image class="goods-list-img" src="{{item.imgUrl}}" style="z-index: -99;"></image>

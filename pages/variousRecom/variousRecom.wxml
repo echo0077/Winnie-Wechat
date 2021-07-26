@@ -1,0 +1,6 @@
+<!--pages/variousRecom/variousRecom.wxml-->
+<view>
+  <navbar pageName="{{pageName}}" showNav="{{true}}" bgColor="#fff" style="z-index: 2;"></navbar>
+  <goodLists ></goodLists>
+</view>
+

@@ -1,0 +1,2 @@
+<!--components/goTop.wxml-->
+<my-icon wx:if="{{showToTop}}" type="dingbu" size="50" color="#666" class="icon-dingbu-box" bindtap="gotoTop"/>

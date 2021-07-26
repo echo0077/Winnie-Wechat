@@ -11,5 +11,8 @@ module.exports = {
 	},
 	getHotSearch: ( ) => {
 		return request('/find/getHotSearch.shtml', 'POST', { }, false);
-	}
+	},
+	indexHotList: ( ) => {
+		return request('/indexHotList.shtml', 'POST', { }, false);
+	},
 }

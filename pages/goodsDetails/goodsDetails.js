@@ -16,7 +16,8 @@ Page({
     addressObj: {
       pro: '广东省',
       city: '广州'
-    }
+    },
+    showToTop: false
   },
   showAddress(e) {
     this.setData({
@@ -56,7 +57,17 @@ Page({
       })
     })
   },
-
+  onPageScroll(e) {
+    if(e.scrollTop > 300) {
+      this.setData({
+        showToTop: true
+      })
+    } else {
+      this.setData({
+        showToTop: false
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

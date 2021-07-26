@@ -65,4 +65,5 @@
   color: #ccc;
   line-height: 90rpx;
   margin: 0 auto;
+  display: flex;
 }

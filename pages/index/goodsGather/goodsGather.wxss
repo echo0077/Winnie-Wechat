@@ -20,6 +20,7 @@
   width: 180rpx;
   height: 296rpx;
   margin: 0 14rpx;
+  position: relative;
 }
 .goods-size{
   font-size: 26rpx;
@@ -27,4 +28,16 @@
 }
 .goods-price{
   color: red;
+  position: absolute;
+  bottom: -10rpx
+}
+.more-box{
+  display: flex;
+  align-items: center;
+}
+.look-more{
+  width: 45rpx;
+  color: #ccc;
+  font-size: 24rpx;
+  margin: 0 20rpx 0 10rpx;
 }

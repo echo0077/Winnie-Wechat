@@ -67,6 +67,7 @@ Page({
     isShowScreen: false,
     screenData: {},
     screenOldData: {},
+    showToTop: false
   },
 
 /**
@@ -104,6 +105,17 @@ Page({
         screenOldData: res.data.result
       })
     })
+  },
+  onPageScroll(e) {
+    if(e.scrollTop > 300) {
+      this.setData({
+        showToTop: true
+      })
+    } else {
+      this.setData({
+        showToTop: false
+      })
+    }
   },
 
 /**

@@ -2,6 +2,7 @@
   "usingComponents": {
     "goodsDetailItem": "/pages/goodsDetails/goodsDetailItem/goodsDetailItem",
     "navbar": "/components/navbar",
-    "shopAddress": "../goodsDetails/shopAddress/shopAddress"
+    "shopAddress": "../goodsDetails/shopAddress/shopAddress",
+    "goTop": "../../../components/goTop/goTop"
   }
 }

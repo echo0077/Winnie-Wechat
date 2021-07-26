@@ -11,13 +11,14 @@ Component({
   properties: {
     goodsList: {
       type: Array,
-      value: [],
-      observer: function (newVal, oldVal, changedPath) {}
+      value: []
     },
     showBottom: {
       type: Boolean,
-      value: false,
-      observer: function (newVal, oldVal, changedPath) {}
+      value: false
+    },
+    isHome: {
+      type: Boolean
     }
   },
 
@@ -35,7 +36,7 @@ Component({
     goDetail(e) {
       let goodsId = e.currentTarget.dataset.goodsno
       wx.navigateTo({
-        url: '../../../pages/goodsDetails/goodsDetails?goodsNo=' + goodsId
+        url: '/pages/goodsDetails/goodsDetails?goodsNo=' + goodsId
       })
     },
   }

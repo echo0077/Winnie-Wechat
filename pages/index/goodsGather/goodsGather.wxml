@@ -7,9 +7,13 @@
     <scroll-view scroll-x="{{true}}">
       <view class="goods-list-box">
         <view wx:for="{{item.goodsList}}" wx:for-item="itm" wx:key="index" class="goods-list-item">
-          <image src="{{itm.imgUrl}}" class="goods-img"></image>
+          <image src="{{itm.imgUrl}}" class="goods-img" bindtap="lookMore" data-title="{{item.title}}" data-imgKey="{{itm.imgUrl}}"></image>
           <view class="goods-size two-vertical">{{itm.goodsName}}</view>
           <view class="goods-price goods-size">￥{{itm.mallPrice}}</view>
+        </view>
+        <view class="more-box" bindtap="lookMore" data-title="{{item.title}}">
+          <my-icon type="xiangzuo" size="40" color="#ccc" class="icon-dingbu-box"/>
+          <view class="look-more">查看更多</view>
         </view>
       </view>
     </scroll-view>
