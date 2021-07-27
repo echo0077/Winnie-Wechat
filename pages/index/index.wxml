@@ -3,7 +3,7 @@
   <navbar pageName="唯妮海购" showNav="{{false}}" bgColor="#a9a9a9"></navbar>
   <banner dataBanner='{{bannerList}}' searchKey='{{searchKey}}'/>
   <view class="home-nar-box">
-    <view wx:for="{{homeNarList}}" wx:key="index" class="home-nar">
+    <view wx:for="{{homeNarList}}" wx:key="index" class="home-nar" bindtap="gotoMore" data-title="{{item.title}}">
       <image src="{{item.img}}" class="home-nar-img"></image>
       <view>{{item.title}}</view>
     </view>

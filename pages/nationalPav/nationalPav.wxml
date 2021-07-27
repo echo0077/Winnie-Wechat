@@ -1,0 +1,8 @@
+<!--pages/nationalPav/nationalPav.wxml-->
+<view>
+  <navbar pageName="国家馆" showNav="{{true}}" bgColor="#a9a9a9"></navbar>
+  <view style="padding-top: {{heiPadding}}px;">
+    <goodsGather newSubject="{{newSubject}}"></goodsGather>
+    <goTop showToTop="{{showToTop}}"></goTop>
+  </view>
+</view>

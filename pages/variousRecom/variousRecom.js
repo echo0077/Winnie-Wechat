@@ -47,6 +47,20 @@ Page({
     searchGoods(param).then(res => {
       let list = res.data.result.list
       let _list = this.data.goodsList.concat(list)
+      list.forEach(item => {
+        switch (item.deliveryType) {
+          case 1:
+            return item.deliveryType = '保税区邮'
+          case 2:
+            return item.deliveryType = '香港直邮'
+          case 4:
+            return item.deliveryType = '海外直邮'
+          case 5:
+            return item.deliveryType = '国内发货'
+          default:
+            break;
+        }
+      })
       this.setData({
         goodsList: _list
       })
@@ -58,6 +72,7 @@ Page({
     })
   },
   onLoad: function (options) {
+    console.log(options);
     this.setData({
       pageName: options.titleKey,
       variImg: options.img,

@@ -15,4 +15,10 @@ module.exports = {
 	indexHotList: ( ) => {
 		return request('/indexHotList.shtml', 'POST', { }, false);
 	},
+	themeBanner: (param) => {
+		return request('/find/themeBanner.shtml', 'POST', param, false);
+	},
+	queryCountryList: ( ) => {
+		return request('/goods/queryCountryList.shtml', 'POST', {}, false);
+	},
 }

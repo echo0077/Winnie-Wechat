@@ -8,7 +8,8 @@
     "pages/searchList/searchGoods/searhGoods",
     "pages/searchList/searchPage/searchPage",
     "pages/goodsDetails/goodsDetails",
-    "pages/variousRecom/variousRecom"
+    "pages/variousRecom/variousRecom",
+    "pages/nationalPav/nationalPav"
   ],
   "tabBar": {
     "color": "#a9a9a9",

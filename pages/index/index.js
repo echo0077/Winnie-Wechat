@@ -1,6 +1,6 @@
 // index.js
 // 获取应用实例
-const { getHomeList, indexHotList } = require("../../api/home") 
+const { getHomeList, indexHotList, themeBanner } = require("../../api/home") 
 const app = getApp()
 
 Page({
@@ -35,7 +35,6 @@ Page({
   bindViewTap() {},
   onLoad() {
     getHomeList().then(res => {
-      console.log(res.data.result.newSubject);
       let result = res.data.result
       this.setData({
         bannerList: result.banner,
@@ -75,6 +74,24 @@ Page({
     } else {
       this.setData({
         showToTop: false
+      })
+    }
+  },
+  gotoMore(e) {
+    console.log(e.currentTarget.dataset.title);
+    let key = e.currentTarget.dataset.title
+    if(key == '热卖') {
+      let param = { themeId: 317 }
+      themeBanner(param).then(res => {
+        let imgKey = res.data.result[0].adImgUrl
+        let titleKey = '当季热卖'
+        wx.navigateTo({
+          url: `/pages/variousRecom/variousRecom?titleKey=${titleKey}&img=${imgKey}&id=317`
+        })
+      })
+    } else if(key == '国家馆') {
+      wx.navigateTo({
+        url: `/pages/nationalPav/nationalPav`
       })
     }
   }

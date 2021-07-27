@@ -1,9 +1,7 @@
 {
   "usingComponents": {
     "navbar": "/components/navbar/index",
-    "banner": "./banner/banner",
     "goodsGather": "/components/goodsGather/goodsGather",
-    "goodLists": "/components/goodLists/goodLists",
     "goTop": "/components/goTop/goTop"
   }
 }
