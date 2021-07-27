@@ -10,7 +10,14 @@
   </view>
   <view  class="special-box">
     <view wx:for="{{specialList}}" wx:key="index" class="special-content">
-      <image src="{{item.url}}"  class="special-img"></image>
+      <image 
+        src="{{item.url}}"  
+        class="special-img" 
+        bindtap="goDetail" 
+        data-title="{{item.title}}" 
+        data-id="{{item.id}}" 
+        data-img="{{item.url}}"
+      ></image>
     </view>
   </view>
   <goodsGather newSubject="{{newSubject}}"/>

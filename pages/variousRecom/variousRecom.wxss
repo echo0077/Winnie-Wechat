@@ -1,5 +1,13 @@
 /* pages/variousRecom/variousRecom.wxss */
+page{
+  background: #F7F8FC;
+}
 .vari-img{
   width: 100%;
   height: auto;
+}
+.no-data-img{
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }

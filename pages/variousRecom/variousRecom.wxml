@@ -1,10 +1,15 @@
 <!--pages/variousRecom/variousRecom.wxml-->
-<view style="background: #F5F5F5;">
+<view>
   <navbar pageName="{{pageName}}" showNav="{{true}}" bgColor="#fff" style="z-index: 2;"></navbar>
   <view style="padding-top: {{heiPadding}}px;">
     <image src="{{variImg}}" class="vari-img" mode="widthFix"></image>
-    <goodLists goodsList="{{goodsList}}" isHome="{{true}}" showBottom="{{showBottom}}"></goodLists>
-    <goTop showToTop="{{showToTop}}"></goTop>
+    <view wx:if="{{showNodata}}" class="no-data-img">
+      <image src="/image/no-data.jpg"></image>
+    </view>
+    <view wx:else>
+      <goodLists goodsList="{{goodsList}}" isHome="{{true}}" showBottom="{{showBottom}}"></goodLists>
+      <goTop showToTop="{{showToTop}}"></goTop>
+    </view>
   </view>
 </view>
 

@@ -36,6 +36,7 @@ Page({
   onLoad() {
     getHomeList().then(res => {
       let result = res.data.result
+      console.log(result.subject);
       this.setData({
         bannerList: result.banner,
         searchKey: result.hotSearch,
@@ -94,5 +95,14 @@ Page({
         url: `/pages/nationalPav/nationalPav`
       })
     }
+  },
+  goDetail(e) {
+    console.log(e.currentTarget.dataset);
+    let titleKey = e.currentTarget.dataset.title
+    let imgKey = e.currentTarget.dataset.img
+    let id = e.currentTarget.dataset.id
+    wx.navigateTo({
+      url: `/pages/variousRecom/variousRecom?titleKey= ${titleKey}&img=${imgKey}&id=${id}`
+    })
   }
 })
