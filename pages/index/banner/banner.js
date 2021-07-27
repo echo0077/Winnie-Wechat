@@ -14,9 +14,7 @@ Component({
       }
     },
     searchKey: {
-      type: String,
-      value: '',
-      observer: function (newVal, oldVal, changedPath) {}
+      type: String
     }
   },
 

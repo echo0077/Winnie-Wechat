@@ -26,12 +26,18 @@ Component({
    */
   methods: {
     lookMore(e) {
-      console.log(e.currentTarget.dataset.title);
       let titleKey = e.currentTarget.dataset.title
-      let imgKey = e.currentTarget.dataset
+      let imgKey = e.currentTarget.dataset.imgkey
+      let id = e.currentTarget.dataset.id
       wx.navigateTo({
-        url: `/pages/variousRecom/variousRecom?titleKey= ${titleKey}&img=${imgKey}`
+        url: `/pages/variousRecom/variousRecom?titleKey= ${titleKey}&img=${imgKey}&id=${id}`
       })
     },
+    goodsDetail(e) {
+      let goodsId = e.currentTarget.dataset.goodsno
+      wx.navigateTo({
+        url: '/pages/goodsDetails/goodsDetails?goodsNo=' + goodsId
+      })
+    }
   }
 })

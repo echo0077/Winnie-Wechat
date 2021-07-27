@@ -1,6 +1,10 @@
 <!--pages/variousRecom/variousRecom.wxml-->
-<view>
+<view style="background: #F5F5F5;">
   <navbar pageName="{{pageName}}" showNav="{{true}}" bgColor="#fff" style="z-index: 2;"></navbar>
-  <goodLists ></goodLists>
+  <view style="padding-top: {{heiPadding}}px;">
+    <image src="{{variImg}}" class="vari-img" mode="widthFix"></image>
+    <goodLists goodsList="{{goodsList}}" isHome="{{true}}" showBottom="{{showBottom}}"></goodLists>
+    <goTop showToTop="{{showToTop}}"></goTop>
+  </view>
 </view>
 

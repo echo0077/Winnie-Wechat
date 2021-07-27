@@ -36,11 +36,12 @@ Page({
   onLoad() {
     getHomeList().then(res => {
       console.log(res.data.result.newSubject);
+      let result = res.data.result
       this.setData({
-        bannerList: res.data.result.banner,
-        searchKey: res.data.result.hotSearch,
-        newSubject: res.data.result.newSubject,
-        specialList: res.data.result.subject
+        bannerList: result.banner,
+        searchKey: result.hotSearch,
+        newSubject: result.newSubject,
+        specialList: result.subject
        })
     })
     indexHotList().then(res => {

@@ -1,21 +1,95 @@
 // pages/variousRecom/variousRecom.js
+import { searchGoods } from '../../api/searchList'
+const App = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    pageName: ''
+    heiPadding: App.globalData.navHeight,
+    pageName: '',
+    variImg: '',
+    form: {
+      name: '',
+      strCount: '',
+      endCount: '',
+      strPrice: '',
+      endPrice: '',
+      brandId: '',
+      countryId: '',
+      deliveryType: '',
+      topCategory: '',
+      twoCategory: '',
+      threeCategory: '',
+      sort: '',
+      order: '',
+      ifSpecOfMall: '',
+      couponPolicyId: '',
+      couponId: '',
+      ifDead: '',
+      ifNew: '',
+      ifDisCount: '',
+      pageNum: 1,
+      pageSize: 20
+    },
+    themeId: 450,
+    goodsList:[],
+    showBottom: false,
+    showToTop: false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    console.log(options.titleKey);
-    this.setData({
-      pageName: options.titleKey
+  getData() {
+    let param = { ...this.data.form, themeId: this.data.themeId }
+    searchGoods(param).then(res => {
+      let list = res.data.result.list
+      let _list = this.data.goodsList.concat(list)
+      this.setData({
+        goodsList: _list
+      })
+      if(list.length < 20) {
+        this.setData({
+          showBottom: true
+        })
+      }
     })
+  },
+  onLoad: function (options) {
+    this.setData({
+      pageName: options.titleKey,
+      variImg: options.img,
+      themeId: options.id
+    })
+    this.getData()
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+    if(!this.data.showBottom) {
+      let i = this.data.form.pageNum
+      this.setData({
+        'form.pageNum': i + 1
+      })
+      this.getData()
+    }
+    
+  },
+
+  onPageScroll(e) {
+    if(e.scrollTop > 300) {
+      this.setData({
+        showToTop: true
+      })
+    } else {
+      this.setData({
+        showToTop: false
+      })
+    }
   },
 
   /**
@@ -53,12 +127,6 @@ Page({
 
   },
 
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
 
   /**
    * 用户点击右上角分享
