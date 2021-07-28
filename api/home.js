@@ -21,4 +21,7 @@ module.exports = {
 	queryCountryList: ( ) => {
 		return request('/goods/queryCountryList.shtml', 'POST', {}, false);
 	},
+	queryBrandList: (param) => {
+		return request('/brand/queryBrandList.shtml', 'POST', param, false);
+	},
 }

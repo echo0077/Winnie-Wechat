@@ -9,7 +9,7 @@
   height: 100%;
 }
 .weui-input{
-  height: 80rpx;
+  height: 70rpx;
   box-sizing: border-box;
   width: 85%;
   position: absolute;

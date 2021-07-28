@@ -9,7 +9,8 @@
     "pages/searchList/searchPage/searchPage",
     "pages/goodsDetails/goodsDetails",
     "pages/variousRecom/variousRecom",
-    "pages/nationalPav/nationalPav"
+    "pages/nationalPav/nationalPav",
+    "pages/brandStreet/brandStreet"
   ],
   "tabBar": {
     "color": "#a9a9a9",

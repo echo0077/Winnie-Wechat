@@ -1,8 +1,6 @@
 // index.js
 // 获取应用实例
 const { getHomeList, indexHotList, themeBanner } = require("../../api/home") 
-const app = getApp()
-
 Page({
   data: {
     bannerList: [],
@@ -36,7 +34,6 @@ Page({
   onLoad() {
     getHomeList().then(res => {
       let result = res.data.result
-      console.log(result.subject);
       this.setData({
         bannerList: result.banner,
         searchKey: result.hotSearch,
@@ -79,7 +76,6 @@ Page({
     }
   },
   gotoMore(e) {
-    console.log(e.currentTarget.dataset.title);
     let key = e.currentTarget.dataset.title
     if(key == '热卖') {
       let param = { themeId: 317 }
@@ -94,10 +90,17 @@ Page({
       wx.navigateTo({
         url: `/pages/nationalPav/nationalPav`
       })
+    } else if(key == '新品') {
+      wx.navigateTo({
+        url: `/pages/searchList/searchGoods/searhGoods?searchkey=${key}`
+      })
+    } else {
+      wx.navigateTo({
+        url: `/pages/brandStreet/brandStreet`
+      })
     }
   },
   goDetail(e) {
-    console.log(e.currentTarget.dataset);
     let titleKey = e.currentTarget.dataset.title
     let imgKey = e.currentTarget.dataset.img
     let id = e.currentTarget.dataset.id

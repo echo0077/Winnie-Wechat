@@ -2,7 +2,7 @@
 const {
   getDetailMo
 } = require("../../api/goodsDetail")
-var addressList = require('../../components/address');
+var addressList = require('../../utils/address');
 Page({
 
   /**

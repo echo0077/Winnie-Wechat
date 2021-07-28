@@ -1,0 +1,8 @@
+<!--pages/brandStreet/brandStreet.wxml-->
+<view>
+  <navbar pageName="品牌街"/>
+  <view style="position: relative; padding-top: {{navHeight}}px">
+    <input class="weui-input" placeholder="搜索在线品牌"/>
+    <my-icon type="sousuo" size="38" color="#666" class="icon-sousuo-box" />
+  </view>
+</view>

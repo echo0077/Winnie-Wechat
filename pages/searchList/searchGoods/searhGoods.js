@@ -63,11 +63,14 @@ Page({
       pageNum: 1,
       pageSize: 20
     },
+    isNew: false,
     // 筛选数据 
     isShowScreen: false,
     screenData: {},
     screenOldData: {},
-    showToTop: false
+    showToTop: false,
+    navHeight: App.globalData.navHeight + 92,
+    ifNew: ''
   },
 
 /**
@@ -95,9 +98,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      searchkey: options.searchkey || '防晒'
-    })
+    if(options.searchkey == '新品') {
+      this.setData({
+        isNew: true,
+        navHeight: App.globalData.navHeight + 58,
+        ifNew: '1'
+      })
+    } else {
+      this.setData({
+        searchkey: options.searchkey || '防晒'
+      })
+    }
     let param = this.getParam()
     getSolrGroup(param).then(res => {
       this.setData({
@@ -123,7 +134,7 @@ Page({
    */
   getParam() {
     let data = this.data.searchGoodsData
-    let param = { ...data, name: this.data.searchkey }
+    let param = { ...data, name: this.data.searchkey, ifNew: this.data.ifNew }
     return param
   },
   getData(param) {

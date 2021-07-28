@@ -1,5 +1,4 @@
 // components/goodList/goodLists.js
-const App = getApp();
 Component({
   options: {
     // 这个配置决定是否由 `app.wxss` 和页面 `wxss` 中的样式定义来决定
@@ -19,6 +18,12 @@ Component({
     },
     isHome: {
       type: Boolean
+    },
+    navHeight: {
+      type: Number
+    },
+    isNew: {
+      type: Boolean
     }
   },
 
@@ -26,7 +31,6 @@ Component({
    * 组件的初始数据
    */
   data: {
-    heiPadding: App.globalData.navHeight + 92
   },
 
   /**

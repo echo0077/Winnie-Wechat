@@ -79,7 +79,6 @@ Page({
     })
   },
   onLoad: function (options) {
-    console.log(options);
     this.setData({
       pageName: options.titleKey,
       variImg: options.img,

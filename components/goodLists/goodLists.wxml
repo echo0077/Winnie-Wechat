@@ -1,8 +1,11 @@
 <!--components/goodList/goodLists.wxml-->
-<view class="goods-list-content-box" style="padding-top: {{isHome ? 0 : heiPadding}}px;">
+<view class="goods-list-content-box" style="padding-top: {{isHome ? 0 : navHeight}}px;">
   <view wx:for="{{goodsList}}" wx:key="index" class="goods-list-content"  bindtap="goDetail" data-goodsNo="{{item.goodsNo}}">
     <view class="goods-list-img-box">
       <image class="goods-list-img" src="{{item.imgUrl}}" style="z-index: -99;"></image>
+    </view>
+    <view wx:if="{{item.ifNew == 1 && !isNew}}" class="if-new-box">
+      新品
     </view>
     <view class="goods-list-text">
       <view class="goods-list-type">{{item.deliveryType}}</view>

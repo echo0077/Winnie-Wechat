@@ -67,3 +67,15 @@
   margin: 0 auto;
   display: flex;
 }
+.if-new-box{
+  background: -webkit-linear-gradient(left, #a1eed4, #36bcb4);
+  width: 30%;
+  height: 50rpx;
+  line-height: 50rpx;
+  position: absolute;
+  top: 15px;
+  text-align: center;
+  color: #fff;
+  border-top-right-radius: 100px;
+  border-bottom-right-radius: 100px;
+}

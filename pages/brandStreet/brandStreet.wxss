@@ -1,0 +1,20 @@
+/* pages/brandStreet/brandStreet.wxss */
+page{
+  background-color: #F2F2F2;
+}
+.weui-input{
+  height: 66rpx;
+  box-sizing: border-box;
+  width: 90%;
+  margin-left: 30rpx;
+  background: #fff;
+  position: relative;
+  padding-left: 60rpx;
+  font-size: 26rpx;
+  border-radius: 30rpx;
+}
+.icon-sousuo-box{
+  position: absolute;
+  top: 170rpx;
+  left: 40rpx;
+}
