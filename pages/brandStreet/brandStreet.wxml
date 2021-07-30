@@ -1,8 +1,32 @@
 <!--pages/brandStreet/brandStreet.wxml-->
 <view>
   <navbar pageName="品牌街"/>
-  <view style="position: relative; padding-top: {{navHeight}}px">
-    <input class="weui-input" placeholder="搜索在线品牌"/>
+  <view style="padding-top: {{navHeight}}px" class="view-box">
+    <input class="weui-input" placeholder="搜索在线品牌" />
     <my-icon type="sousuo" size="38" color="#666" class="icon-sousuo-box" />
+  </view>
+  
+  <view class="loading-box" wx:if="{{showLoad}}">
+    <image src="../../image/loading.gif" class="loading-img"></image>
+  </view>
+  <view wx:else style="padding-top: {{navHeight + 46}}px">
+    <view wx:for="{{brandList}}" wx:key="index" id="{{'togo-' + item}}">
+      <view class="brand-title">{{item}}</view>
+      <view wx:if="{{item == '热门品牌'}}">
+        <view wx:for="{{hotBrandList}}" wx:for-item="itm" wx:key="index" class="brand-list-item">
+          <image src="{{itm.brandLogo}}" class="brand-img"></image>
+          <view class="brand-name">{{itm.brandName}}</view>
+        </view>
+      </view>
+      <view wx:else>
+        <view wx:for="{{brandMap[item]}}" wx:for-item="ite" wx:key="index" class="brand-list-item">
+          <image src="{{ite.brandLogo}}" class="brand-img"></image>
+          <view class="brand-name">{{ite.brandName}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="right-box-togo" wx:if="{{!showLoad}}">
+    <view wx:for="{{brandList}}" wx:key="index" wx:if="{{item != '热门品牌'}}" bindtap="goToItem" data-key="{{item}}">{{item}}</view>
   </view>
 </view>
