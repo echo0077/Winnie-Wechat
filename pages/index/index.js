@@ -92,7 +92,7 @@ Page({
       })
     } else if(key == '新品') {
       wx.navigateTo({
-        url: `/pages/searchList/searchGoods/searhGoods?searchkey=${key}`
+        url: `/pages/searchList/searchGoods/searhGoods?searchkey=${key}&isShow=${true}`
       })
     } else {
       wx.navigateTo({

@@ -1,6 +1,6 @@
 <!--pages/searchList/searchGoods/searhGoods.wxml-->
 <view class="goods-big-box">
-  <navbar showNav="{{true}}" pageName="{{isNew ? '新品' : ''}}"></navbar>
+  <navbar showNav="{{true}}" pageName="{{isNew ? titleKey : ''}}"></navbar>
   <view class="screen-box-shade" style="{{isShowScreen ? 'display: block;' : 'display: none;'}}" bindtap="clickShade"></view>
   <view class="screen-box {{isShowScreen ? 'show-screen-box' : 'hide-screen-box'}}">
     <screenGoods screenData='{{screenData}}' bind:sureInfo="screenInfo"/> 
@@ -21,6 +21,12 @@
       </view>
     </view>
   </view>
-  <goodLists goodsList="{{goodsList}}" showBottom="{{showBottom}}" id="goodsList" navHeight="{{navHeight}}" isNew="{{true}}"></goodLists>
-  <goTop showToTop="{{showToTop}}"/>
+  <view wx:if="{{noData}}" class="img-box">
+    <image src="{{noDataImg}}"></image>
+  </view>
+  <view wx:else>
+    <goodLists goodsList="{{goodsList}}" showBottom="{{showBottom}}" id="goodsList" navHeight="{{navHeight}}" isNew="{{true}}"></goodLists>
+    <goTop showToTop="{{showToTop}}"/>
+  </view>
+  
 </view>

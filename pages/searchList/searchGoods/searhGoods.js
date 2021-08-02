@@ -70,7 +70,11 @@ Page({
     screenOldData: {},
     showToTop: false,
     navHeight: App.globalData.navHeight + 92,
-    ifNew: ''
+    ifNew: '',
+    titleKey: '',
+    brandId: '',
+    noDataImg: '/image/no-data.jpg',
+    noData: false
   },
 
 /**
@@ -98,12 +102,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if(options.searchkey == '新品') {
-      this.setData({
-        isNew: true,
-        navHeight: App.globalData.navHeight + 58,
-        ifNew: '1'
-      })
+    if(options.isShow) {
+      if(options.searchkey == '新品') {
+        this.setData({
+          isNew: true,
+          navHeight: App.globalData.navHeight + 58,
+          ifNew: '1',
+          titleKey: options.searchkey
+        })
+      } else {
+        this.setData({
+          isNew: true,
+          navHeight: App.globalData.navHeight + 58,
+          titleKey: options.searchkey,
+          brandId: options.brandId
+        })
+      }
     } else {
       this.setData({
         searchkey: options.searchkey || '防晒'
@@ -134,7 +148,7 @@ Page({
    */
   getParam() {
     let data = this.data.searchGoodsData
-    let param = { ...data, name: this.data.searchkey, ifNew: this.data.ifNew }
+    let param = { ...data, name: this.data.searchkey, ifNew: this.data.ifNew, brandId: this.data.brandId }
     return param
   },
   getData(param) {
@@ -160,6 +174,10 @@ Page({
           goodsList: _list,
           'searchGoodsData.pageNum': res.data.result.pageNum,
           goodsTotal: res.data.result.total
+        })
+      } else {
+        this.setData({
+          noData: true
         })
       }
     })

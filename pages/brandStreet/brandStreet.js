@@ -13,8 +13,7 @@ Page({
     allDataBrand: {},
     count: 7,
     showLoad: true,
-    mockImg: '../../image/mock-img.png',
-    topHight: App.globalData.navHeight + 90
+    mockImg: '../../image/mock-img.png'
   },
 
   /**
@@ -95,15 +94,20 @@ Page({
     query.selectViewport().scrollOffset()
     query.select(`#togo-${key}`).boundingClientRect()
     query.exec(function (res) {
-      console.log(res);
       var miss = 0
-      if(key == '#') miss = res[0].scrollHeight - App.globalData.navHeight - 3000
-      else miss = res[0].scrollTop + res[1].top - 10 - App.globalData.navHeight - 50
-      console.log(miss);
+      if(key == '#') miss = res[0].scrollHeight - App.globalData.navHeight - 1200
+      else miss = res[0].scrollTop + res[1].top - 10 - App.globalData.navHeight - 60
       wx.pageScrollTo({
         scrollTop: miss,
         duration: 300
       })
+    })
+  },
+  toDateil(e) {
+    let key = e.currentTarget.dataset.title
+    let brandId = e.currentTarget.dataset.brandid
+    wx.navigateTo({
+      url: `/pages/searchList/searchGoods/searhGoods?searchkey=${key}&isShow=${true}&brandId=${brandId}`
     })
   },
   /**

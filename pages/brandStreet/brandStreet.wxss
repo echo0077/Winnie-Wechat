@@ -7,7 +7,7 @@ page{
   background-color: #F2F2F2;
   position: fixed;
   width: 100%;
-  padding-bottom: 30rpx;
+  padding: 30rpx 0;
 }
 .weui-input{
   height: 66rpx;
@@ -15,14 +15,13 @@ page{
   width: 90%;
   margin-left: 30rpx;
   background: #fff;
-  position: relative;
   padding-left: 60rpx;
   font-size: 26rpx;
   border-radius: 30rpx;
 }
 .icon-sousuo-box{
   position: absolute;
-  top: 170rpx;
+  top: 33%;
   left: 40rpx;
 }
 .brand-title{
@@ -52,10 +51,11 @@ page{
 }
 .right-box-togo{
   position: fixed;
-  top: 330rpx;
+  top: 22%;
   right: 10rpx;
   width: 80rpx;
   text-align: center;
+  font-size: 26rpx;
 }
 .loading-box{
   width: 100%;
