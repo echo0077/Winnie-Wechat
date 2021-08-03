@@ -102,20 +102,24 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options);
     if(options.isShow) {
       if(options.searchkey == '新品') {
         this.setData({
           isNew: true,
           navHeight: App.globalData.navHeight + 58,
-          ifNew: '1',
+          'searchGoodsData.ifNew': '1',
           titleKey: options.searchkey
         })
       } else {
         this.setData({
           isNew: true,
           navHeight: App.globalData.navHeight + 58,
+          searchGoodsData: {
+            brandId: options.brandId || '',
+            threeCategory: options.threeCategory || ''
+          },
           titleKey: options.searchkey,
-          brandId: options.brandId
         })
       }
     } else {
@@ -148,7 +152,7 @@ Page({
    */
   getParam() {
     let data = this.data.searchGoodsData
-    let param = { ...data, name: this.data.searchkey, ifNew: this.data.ifNew, brandId: this.data.brandId }
+    let param = { ...data, name: this.data.searchkey }
     return param
   },
   getData(param) {

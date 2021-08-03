@@ -1,2 +1,26 @@
 <!--pages/classify/classify.wxml-->
-<text>pages/classify/classify.wxml</text>
+<view style="position: relative;">
+  <navbar pageName="唯妮海购" showNav="{{false}}" namecolor="{{'#aa4f53'}}"  bgColor="#f8f9fc"/>
+  
+  <view style="margin-top: {{navHeight}}px" class="classify-big-box">
+    <view class="icon-box">
+      <my-icon type="search" size="50" color="#aa4f53" class="icon-sousuo-box" bindtap="goSearch"/>
+      <my-icon type="gouwuche" size="50" color="#aa4f53" class="icon-sousuo-box" bindtap="goCart"/>
+    </view>
+    <view class="classify-left-box">
+      <view 
+        wx:for="{{leftClassData}}" 
+        wx:key="index" 
+        class="left-item {{activeClass == item.classid ? 'left-item-active' : ''}}"
+        bindtap="changeItem"
+        data-classid="{{item.classid}}"
+      >
+        <view class="left-line" wx:if="{{activeClass == item.classid}}"></view>
+        {{item.classdesc}}
+      </view>
+    </view>
+    <view class="classify-right-box">
+      <classifyRight rightClassData="{{rightClassData}}"/>
+    </view>
+  </view>
+</view>

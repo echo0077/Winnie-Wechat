@@ -28,5 +28,4 @@
     <goodLists goodsList="{{goodsList}}" showBottom="{{showBottom}}" id="goodsList" navHeight="{{navHeight}}" isNew="{{true}}"></goodLists>
     <goTop showToTop="{{showToTop}}"/>
   </view>
-  
 </view>

@@ -1,0 +1,20 @@
+<!--pages/classify/classifyRight/classifyRight.wxml-->
+<scroll-view scroll-y="{{true}}" class="right-big-box">
+  <view wx:for="{{rightClassData}}" wx:key="index">
+    <view class="class-header-name">{{item.name}}</view>
+    <view class="right-class-content">
+      <view 
+        wx:for="{{item.threeCategoryList}}" 
+        wx:key="index" 
+        wx:for-item="itm" 
+        class="class-item"
+        bindtap="goToDetail"
+        data-id="{{itm.id}}"
+        data-title="{{itm.threeName}}"
+      >
+        <image src="{{itm.imgUrl}}" alt="" class="img-item"></image>
+        <view class="name-item">{{itm.threeName}}</view>
+      </view>
+    </view>
+  </view>
+</scroll-view>

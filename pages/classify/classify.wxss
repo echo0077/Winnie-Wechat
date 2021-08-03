@@ -1,1 +1,48 @@
 /* pages/classify/classify.wxss */
+page{
+  height: 89%;
+  overflow: hidden;
+}
+.classify-big-box{
+  border-top: 1rpx solid #ebebeb;
+}
+.classify-left-box{
+  border-right: 1rpx solid #ebebeb;
+  float: left;
+  width: 24%;
+  padding-top: 40rpx;
+  position: fixed;
+  height: 100%;
+  font-size: 28rpx;
+}
+.left-item{
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  position: relative;
+}
+.left-item-active{
+  color: #aa4f53;
+}
+.left-line{
+  width: 6rpx;
+  background-color: #aa4f53;
+  height: 75%;
+  position: absolute;
+  top: 15rpx;
+}
+.classify-right-box{
+  width: 73%;
+  float: right;
+}
+.icon-box{
+  position: absolute;
+  top: -58rpx;
+  z-index: 10;
+  display: flex;
+  margin-left: 20rpx;
+}
+.icon-sousuo-box{
+  padding-right: 20rpx;
+}

@@ -1,0 +1,23 @@
+/* pages/classify/classifyRight/classifyRight.wxss */
+.right-big-box{
+  height: 1300rpx;
+}
+.right-class-content{
+  display: flex;
+  flex-wrap: wrap;
+}
+.class-header-name{
+  padding-top: 50rpx;
+  padding-bottom: 20rpx;
+}
+.class-item{
+  width: 160rpx;
+  height: 190rpx;
+  margin: 10rpx;
+  text-align: center;
+  font-size: 24rpx;
+}
+.img-item{
+  width: 120rpx;
+  height: 120rpx;
+}

@@ -11,7 +11,7 @@ Page({
     hotBrandList: [],
     brandList: [],
     allDataBrand: {},
-    count: 7,
+    count: 1,
     showLoad: true,
     mockImg: '../../image/mock-img.png'
   },
@@ -53,6 +53,7 @@ Page({
     })
     _brandList.unshift('热门品牌')
     this.setData({
+      allDataBrand: streetData.brandMap,
       brandMap: streetData.brandMap,
       hotBrandList: streetData.hotBrandList,
       brandList: _brandList
@@ -61,7 +62,7 @@ Page({
       this.setData({
         showLoad: false
       })  
-    }, 300);
+    }, 1000);
   },
   // onPageScroll(e) {
   //   let count = this.data.count
@@ -69,10 +70,8 @@ Page({
   //   let brandMap = this.data.allDataBrand
   //   let _brandMap = this.data.brandMap
   //   let obj = {}
-  //   if(e.scrollTop > 1000 * count && e.scrollTop < 1000 * (count + 0.1)) {
+  //   if(e.scrollTop > 2000 * count && e.scrollTop < 2000 * (count + 0.1)) {
   //     count++
-  //     console.log(11111111, count);
-  //     console.log(11111111, e.scrollTop);
   //     _brandList.forEach((item, index) => {
   //       if(index == count) obj[item] = brandMap[item]
   //     })
@@ -83,10 +82,6 @@ Page({
   //     })
   //   }
   // },
-
-  onPageScroll(e) {
-    // console.log(e.scrollTop);
-  },
   goToItem(e) {
     let key = e.currentTarget.dataset.key
     var me = this;

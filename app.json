@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/classify/classify",
     "pages/index/index",
     "pages/index/banner/banner",
-    "pages/classify/classify",
     "pages/shopCart/shopCart",
     "pages/mine/mine",
     "pages/searchList/searchGoods/searhGoods",

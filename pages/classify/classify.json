@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "classifyRight": "./classifyRight/classifyRight",
+    "navbar": "/components/navbar/index"
+  }
 }

@@ -9,12 +9,13 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    pageName:String,
-    showNav:{
-      type:Boolean,
-      value:true
+    pageName: String,
+    showNav: {
+      type: Boolean,
+      value: true
     },
-    bgColor:String,
+    bgColor: String,
+    namecolor: String
   },
 
   /**
