@@ -1,11 +1,13 @@
 // pages/mine/mine.js
+const App = getApp();
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    navHeight: App.globalData.navHeight,
   },
 
   /**

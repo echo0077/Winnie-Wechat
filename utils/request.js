@@ -18,9 +18,11 @@ module.exports = {
     		// console.log(_url)
     	
     		return new Promise((resolve, reject) => {
-      			wx.showLoading({
-       		 	title: '加载中'
-      		})
+      			wx.showToast({
+							image: '/image/loading.gif',
+								title: '加载中',
+								mask: true
+      			})
 
       		wx.request({
         		url: _url,
@@ -32,7 +34,7 @@ module.exports = {
        			success(res) {
          			// console.log(res)
           			resolve(res)
-          			wx.hideLoading()
+          			wx.hideToast()
        			 },
         		fail() {
           			reject('接口请求错误')

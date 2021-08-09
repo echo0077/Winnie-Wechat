@@ -1,2 +1,25 @@
 <!--pages/mine/login/login.wxml-->
-<text>pages/mine/login/login.wxml</text>
+<view>
+  <image src="../../../image/login-bg.jpg" class="hearder-img"></image>
+  <view class="login-content">
+    <view class="account-content">
+      <view class="content phone-content">
+        <my-icon type="shouji" size="40" color="#aa4f53" class="icon-phone"/>
+        <input type="text" class="account" placeholder="请输入账号" value="{{phone}}"/>
+      </view>
+      <view class="content">
+        <my-icon type="suo" size="40" color="#aa4f53" class="icon-phone"/>
+        <input class="pass-input account" password type="text" value="{{password}}" placeholder="请输入密码" />
+      </view>
+    </view>
+    <view class="login-to" bindtap="loginTo">登录</view>
+    <view class="regist-box">
+      <view>注册账号</view>
+      <view>忘记密码？</view>
+    </view>
+    <view class="other-login">
+      <image src="../../../image/other-login.jpg" class="login-img"></image>
+      <my-icon type="weixin" size="80" color="#aa4f53" class="icon-phone" bindtap="loginWeibo"/>
+    </view>
+  </view>
+</view>

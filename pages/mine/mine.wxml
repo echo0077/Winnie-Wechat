@@ -1,1 +1,8 @@
 <!--pages/mine/mine.wxml-->
+<view>
+  <navbar :showNav="{{true}}"/>
+  <view style="padding-top: {{navHeight}}px">
+    <login></login>
+    <!-- <regist></regist> -->
+  </view>
+</view>
