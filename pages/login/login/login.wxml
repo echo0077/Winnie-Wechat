@@ -14,8 +14,8 @@
     </view>
     <view class="login-to" bindtap="loginTo">登录</view>
     <view class="regist-box">
-      <view>注册账号</view>
-      <view>忘记密码？</view>
+      <view bindtap="toRegist">注册账号</view>
+      <view bindtap="forgetPass">忘记密码？</view>
     </view>
     <view class="other-login">
       <image src="../../../image/other-login.jpg" class="login-img"></image>

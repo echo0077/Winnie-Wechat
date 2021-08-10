@@ -32,6 +32,14 @@ Component({
           duration: 2000
       })
       }
+    },
+    toRegist() {
+      wx.navigateTo({
+        url: '/pages/login/regist/regist'
+      })
+    },
+    forgetPass() {
+
     }
   }
 })

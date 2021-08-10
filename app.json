@@ -1,16 +1,17 @@
 {
   "pages": [
-    "pages/classify/classify",
+    "pages/mine/mine",
     "pages/index/index",
+    "pages/classify/classify",
     "pages/index/banner/banner",
     "pages/shopCart/shopCart",
-    "pages/mine/mine",
     "pages/searchList/searchGoods/searhGoods",
     "pages/searchList/searchPage/searchPage",
     "pages/goodsDetails/goodsDetails",
     "pages/variousRecom/variousRecom",
     "pages/nationalPav/nationalPav",
-    "pages/brandStreet/brandStreet"
+    "pages/brandStreet/brandStreet",
+    "pages/login/index"
   ],
   "tabBar": {
     "color": "#a9a9a9",

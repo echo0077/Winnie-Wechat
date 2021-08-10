@@ -1,5 +1,3 @@
-// pages/mine/mine.js
-import { checkUser } from '../../api/login'
 const App = getApp();
 
 Page({
@@ -15,14 +13,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    checkUser().then(res => {
-      console.log(res.data.result);
-      if(!res.data.result) {
-        wx.navigateTo({
-          url: `/pages/login/index`
-        })
-      }
-    })
+
   },
 
   /**

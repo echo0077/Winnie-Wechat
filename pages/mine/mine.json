@@ -1,7 +1,5 @@
 {
   "usingComponents": {
-    "navbar": "../../components/navbar/index",
-    "login": "./login/login",
-    "regist": "./regist/regist"
+    "navbar": "../../components/navbar/index"
   }
 }
