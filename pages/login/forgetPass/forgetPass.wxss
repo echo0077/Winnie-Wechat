@@ -1,51 +1,35 @@
-/* pages/mine/regist/regist.wxss */
-.regist-content-haeder{
+/* pages/login/forgetPass/forgetPass.wxss */
+.pass-box{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  font-size: 28rpx;
-}
-.account-content{
-  width: 90%;
-  height: 208rpx;
-  border: 1rpx solid #b5b5b5;
-  box-sizing: border-box;
-  padding: 30rpx 40rpx;
-  background-color: #fff;
-  margin-top: 40rpx;
 }
 .content{
-  display: flex;
-  align-items: center;
-  height: 70rpx;
-  width: 100%;
-  font-size: 28rpx;
+
+  width: 90%;
 }
 .account{
   width: 84%;
 }
 .phone-content{
-  border-bottom: 1rpx solid #eee;
+  display: flex;
+  align-items: center;
+  height: 70rpx;
+  width: 92%;
+  font-size: 28rpx;
+  border: 1rpx solid #b5b5b5;
+  padding: 14rpx 4%;
   margin-bottom: 10rpx;
 }
 .icon-phone{
   margin-right: 20rpx;
 }
-.show-pass{
-  background-color: #ddd;
-  width: 90rpx;
-  height: 50rpx;
-  text-align: center;
-  line-height: 50rpx;
-  font-size: 26rpx;
-  border-radius: 10rpx;
-}
 .sms-verify{
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 90%;
+  width: 100%;
   margin-top: 40rpx;
 }
 .sms-input{
@@ -65,13 +49,8 @@
   text-align: center;
   border-radius: 10rpx;
 }
-.agreement{
-  width: 90%;
-  text-align: left;
-  margin-top: 20rpx;
-}
 .regist-now{
-  width: 90%;
+  width: 100%;
   height: 80rpx;
   background-color: #9F2E33;
   color: #fff;
@@ -79,8 +58,4 @@
   line-height: 80rpx;
   border-radius: 10rpx;
   margin-top: 50rpx;
-}
-.had-code{
-  color: #9F2E33;
-  margin-top: 20rpx;
 }

@@ -1,4 +1,4 @@
-// pages/mine/regist/regist.js
+// pages/login/forgetPass/forgetPass.js
 const App = getApp();
 
 Component({
@@ -14,6 +14,7 @@ Component({
    */
   data: {
     navHeight: App.globalData.navHeight,
+
   },
 
   /**

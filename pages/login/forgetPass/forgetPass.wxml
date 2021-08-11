@@ -1,0 +1,17 @@
+<!--pages/login/forgetPass/forgetPass.wxml-->
+<view>
+  <navbar :showNav="{{true}}"/>
+  <view style="padding-top: {{navHeight}}px;" class="pass-box">
+    <view class="content">
+      <view class="phone-content">
+        <my-icon type="shouji" size="40" color="#aa4f53" class="icon-phone"/>
+        <input type="text" class="account" placeholder="请输入11位手机号" value="{{phone}}"/>
+      </view>
+      <view class="sms-verify">
+        <input type="text" placeholder="请输入短信验证码" class="sms-input"/>
+        <view class="sms-number">获取短信验证码</view>
+      </view>
+      <view class="regist-now" bindtap="loginTo">下一步</view>
+    </view>
+  </view>
+</view>

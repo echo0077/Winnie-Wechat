@@ -39,7 +39,9 @@ Component({
       })
     },
     forgetPass() {
-
+      wx.navigateTo({
+        url: '/pages/login/forgetPass/forgetPass'
+      })
     }
   }
 })

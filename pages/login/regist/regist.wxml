@@ -1,23 +1,26 @@
 <!--pages/mine/regist/regist.wxml-->
-<view class="regist-content-haeder">
-  <view class="account-content">
-    <view class="content phone-content">
-      <my-icon type="shouji" size="40" color="#aa4f53" class="icon-phone"/>
-      <input type="text" class="account" placeholder="请输入11位手机号" value="{{phone}}"/>
+<view>
+  <navbar :showNav="{{true}}"/>
+  <view class="regist-content-haeder" style="padding-top: {{navHeight}}px;">
+    <view class="account-content">
+      <view class="content phone-content">
+        <my-icon type="shouji" size="40" color="#aa4f53" class="icon-phone"/>
+        <input type="text" class="account" placeholder="请输入11位手机号" value="{{phone}}"/>
+      </view>
+      <view class="content">
+        <my-icon type="suo" size="40" color="#aa4f53" class="icon-phone"/>
+        <input class="pass-input account" password type="text" value="{{password}}" placeholder="请输入6-20位登陆密码" />
+        <view class="show-pass">显示</view>
+      </view>
     </view>
-    <view class="content">
-      <my-icon type="suo" size="40" color="#aa4f53" class="icon-phone"/>
-      <input class="pass-input account" password type="text" value="{{password}}" placeholder="请输入6-20位登陆密码" />
-      <view class="show-pass">显示</view>
+    <view class="sms-verify">
+      <input type="text" placeholder="请输入短信验证码" class="sms-input"/>
+      <view class="sms-number">获取短信验证码</view>
     </view>
+    <view class="agreement">
+      <view>注册即视为同意<text style="color: #aa4f53;">《唯妮海淘用户注册协议》</text></view>
+    </view>
+    <view class="regist-now" bindtap="loginTo">立即注册</view>
+    <view class="had-code">已有唯妮账号></view>
   </view>
-  <view class="sms-verify">
-    <input type="text" placeholder="请输入短信验证码" class="sms-input"/>
-    <view class="sms-number">获取短信验证码</view>
-  </view>
-  <view class="agreement">
-    <view>注册即视为同意<text style="color: #aa4f53;">《唯妮海淘用户注册协议》</text></view>
-  </view>
-  <view class="regist-now" bindtap="loginTo">立即注册</view>
-  <view class="had-code">已有唯妮账号></view>
 </view>
