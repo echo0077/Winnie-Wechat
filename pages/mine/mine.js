@@ -16,7 +16,6 @@ Page({
    */
   onLoad: function (options) {
     checkUser().then(res => {
-      console.log(res.data.result);
       if(!res.data.result) {
         wx.navigateTo({
           url: `/pages/login/index`

@@ -8,5 +8,8 @@ module.exports = {
 */
   checkUser: () => {
 		return request('/user/checkUser.shtml', 'POST', {}, false);
+	},
+  getpublickey: () => {
+		return request('/user/getpublickey.shtml', 'POST', {}, false);
 	}
 }

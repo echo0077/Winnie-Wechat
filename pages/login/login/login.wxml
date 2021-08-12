@@ -5,11 +5,11 @@
     <view class="account-content">
       <view class="content phone-content">
         <my-icon type="shouji" size="40" color="#aa4f53" class="icon-phone"/>
-        <input type="text" class="account" placeholder="请输入账号" value="{{phone}}"/>
+        <input type="text" class="account" placeholder="请输入账号" value="{{phone}}" bindblur="checkPhone"/>
       </view>
       <view class="content">
         <my-icon type="suo" size="40" color="#aa4f53" class="icon-phone"/>
-        <input class="pass-input account" password type="text" value="{{password}}" placeholder="请输入密码" />
+        <input class="pass-input account" password type="text" value="{{password}}" bindinput="getPass" placeholder="请输入密码" />
       </view>
     </view>
     <view class="login-to" bindtap="loginTo">登录</view>
