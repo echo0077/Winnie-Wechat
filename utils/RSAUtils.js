@@ -1,8 +1,7 @@
 /**
  * require BigInt.js and barrett.js
  */
-(function($w) {
-
+(function() {
     //---------------------------------BigInt部分---------------------------------
     // BigInt, a suite of routines for performing multiple-precision arithmetic in
     // JavaScript.
@@ -205,7 +204,7 @@
     {
         var mask = 0xf;
         var result = "";
-        for (i = 0; i < 4; ++i) {
+        for (var i = 0; i < 4; ++i) {
             result += hexToChar[n & mask];
             n >>>= 4;
         }
@@ -402,7 +401,7 @@
         for (var i = 0; i <= t; ++i) {
             c = 0;
             k = i;
-            for (j = 0; j <= n; ++j, ++k) {
+            for (var j = 0; j <= n; ++j, ++k) {
                 uv = result.digits[k] + x.digits[j] * y.digits[i] + c;
                 result.digits[k] = uv & maxDigitVal;
                 c = uv >>> biRadixBits;
@@ -418,7 +417,7 @@
     {
         var n, c, uv;
 
-        result = new BigInt();
+        var result = new BigInt();
         n = biHighIndex(x);
         c = 0;
         for (var j = 0; j <= n; ++j) {
@@ -782,7 +781,7 @@
     };
 
     function initRSAUtils() {
-        $w.RSAUtils = {
+        wx.RSAUtils = {
             Normal: 0,
             NoPadding: 1,
             PKCS1Padding: 2,
@@ -794,5 +793,4 @@
         }
     }
     initRSAUtils();
-
-})(window);
+})();

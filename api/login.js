@@ -11,5 +11,14 @@ module.exports = {
 	},
   getpublickey: () => {
 		return request('/user/getpublickey.shtml', 'POST', {}, false);
-	}
+	},
+  login: (params) => {
+		return request('/user/login.shtml', 'POST', params, false);
+	},
+  sendMoRandmoCode: (params) => {
+		return request('/user/sendMoRandmoCode.shtml', 'POST', params, false);
+	},
+  userRegister: (params) => {
+		return request('/user/userRegister.shtml', 'POST', params, false);
+	},
 }

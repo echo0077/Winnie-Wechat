@@ -1,7 +1,7 @@
 // pages/mine/login/login.js
 import md5 from '../../../utils/md5'
-// import '../../../utils/RSAUtils'
-import { getpublickey } from '../../../api/login'
+import '../../../utils/RSAUtils'
+import { getpublickey, login } from '../../../api/login'
 Component({
   /**
    * 组件的属性列表
@@ -42,18 +42,44 @@ Component({
       })
     },
     loginWeibo() {
-
+      wx.showToast({
+        title: '还未开发！',
+        icon: 'none',
+        duration: 2000
+      })
     },
     loginTo() {
       let phone = this.data.phone
       let password = this.data.password
-      getpublickey().then(res => {
-        console.log(res.data.result);
-        // let i = RSAUtils.getKeyPair(res.data.result.exponent, "", res.data.result.modulus)
-        // console.log(i);
+      if(phone && password) {
+        this.encryption(password).then(revert => {
+          if(revert) {
+            let params = { mobile: phone, password: revert, type: 1 }
+            login(params).then(res => {
+              if(res.data.success) {
+                wx.switchTab({
+                  url: '/pages/index/index',
+                })
+              } else {
+                wx.showToast({
+                  title: res.data.msg,
+                  icon: 'none',
+                  duration: 2000
+                })
+              }
+            })
+          }
+        })
+      }
+    },
+    encryption(password) {
+      return new Promise((resolve, rejects) => {
+        getpublickey().then(res => {
+          let i = wx.RSAUtils.getKeyPair(res.data.result.exponent, "", res.data.result.modulus)
+          let re_password = wx.RSAUtils.encryptedString(i, md5(password), wx.RSAUtils.NoPadding) 
+          resolve(re_password)
+        })
       })
-      
-      console.log(password);
     },
     toRegist() {
       wx.navigateTo({
