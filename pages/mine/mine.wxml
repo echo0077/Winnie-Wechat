@@ -1,7 +1,7 @@
 <!--pages/mine/mine.wxml-->
 <view>
-  <navbar :showNav="{{true}}"/>
+  <navbar pageName="个人中心" showNav="{{false}}"/>
   <view style="padding-top: {{navHeight}}px">
-  
+    
   </view>
 </view>

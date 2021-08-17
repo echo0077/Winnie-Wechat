@@ -60,6 +60,9 @@ Component({
                 wx.switchTab({
                   url: '/pages/index/index',
                 })
+                wx.setStorageSync("nickName", res.data.result.nickName);
+                wx.setStorageSync("roleId", res.data.result.roleId);
+                wx.setStorageSync("randomCode", res.data.result.randomCode);
               } else {
                 wx.showToast({
                   title: res.data.msg,

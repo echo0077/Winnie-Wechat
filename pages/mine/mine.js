@@ -15,16 +15,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(1111111111);
-    checkUser().then(res => {
-      if(!res.data.result) {
-        wx.navigateTo({
-          url: `/pages/login/index`
-        })
-      } else {
-
-      }
-    })
+    
   },
 
   /**
@@ -38,7 +29,12 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    let nickName = wx.getStorageSync("nickName");
+    if(!nickName) {
+      wx.navigateTo({
+        url: `/pages/login/index`
+      })
+    }
   },
 
   /**
