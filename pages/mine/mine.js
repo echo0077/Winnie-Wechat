@@ -1,5 +1,5 @@
 // pages/mine/mine.js
-import { checkUser } from '../../api/login'
+import { getNotice } from '../../api/mine'
 const App = getApp();
 
 Page({
@@ -9,6 +9,8 @@ Page({
    */
   data: {
     navHeight: App.globalData.navHeight,
+    userName: '',
+    noticeList:[]
   },
 
   /**
@@ -34,6 +36,16 @@ Page({
       wx.navigateTo({
         url: `/pages/login/index`
       })
+    } else {
+      getNotice().then(res => {
+        if(res.data.success) {
+          this.setData({
+            nickName: nickName,
+            noticeList: res.data.result
+          })
+        }
+      })
+      
     }
   },
 

@@ -2,6 +2,19 @@
 <view>
   <navbar pageName="个人中心" showNav="{{false}}"/>
   <view style="padding-top: {{navHeight}}px">
-    
+    <view class="mine-box">
+      <image src="/image/my-header-bg.jpg" alt=""  mode="widthFix" class="my-header"></image>
+      <view class="user-content">
+        <image src="/image/default.jpg" class="default"></image>
+        <view style="color: #fff;">{{nickName}}</view>
+      </view>
+    </view>
+    <view>
+      <swiper autoplay="{{true}}" vertical="{{true}}" >
+        <view wx:for="{{noticeList}}" wx:key="index">
+          <text>{{item.title}}</text>
+        </view>
+      </swiper>
+    </view>
   </view>
 </view>
