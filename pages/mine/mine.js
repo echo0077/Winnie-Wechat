@@ -10,9 +10,26 @@ Page({
   data: {
     navHeight: App.globalData.navHeight,
     userName: '',
-    noticeList:[]
+    noticeList:[],
+    myOperate: [
+      {icon: 'zhifuqianbao', text: '待付款', key: 'toPay'},
+      {icon: 'daifahuo', text: '待发货', key: 'toShip'},
+      {icon: 'daishouhuo', text: '待收货', key: 'toReceive'},
+      {icon: 'yiwancheng', text: '已完成', key: 'complete'},
+      {icon: 'shouhou', text: '售后', key: 'sale'}
+    ],
+    myFunct: [
+      {icon: 'youhuiquan', text: '我的优惠券', rightText: '查看所有优惠卷', key: 'myCoupon'},
+      {icon: 'self', text: '实名认证', rightText: '', key: 'self'},
+      {icon: 'shoucang', text: '我的收藏', rightText: '', key: 'myCollect'},
+      {icon: 'shiyongbangzhu', text: '使用帮助', rightText: '', key: 'help'},
+      {icon: 'kefu', text: '联系客服', rightText: '', key: 'customer'}
+    ]
   },
 
+  goNotice() {
+    
+  },
   /**
    * 生命周期函数--监听页面加载
    */

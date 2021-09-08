@@ -1,20 +1,51 @@
 <!--pages/mine/mine.wxml-->
 <view>
   <navbar pageName="个人中心" showNav="{{false}}"/>
-  <view style="padding-top: {{navHeight}}px">
+  <view style="padding-top: {{navHeight}}px" class="mine-content">
     <view class="mine-box">
       <image src="/image/my-header-bg.jpg" alt=""  mode="widthFix" class="my-header"></image>
       <view class="user-content">
         <image src="/image/default.jpg" class="default"></image>
-        <view style="color: #fff;">{{nickName}}</view>
+        <view style="color: #fff; font-size: 30rpx;">{{nickName}}</view>
       </view>
     </view>
-    <view>
-      <swiper autoplay="{{true}}" vertical="{{true}}" >
-        <view wx:for="{{noticeList}}" wx:key="index">
-          <text>{{item.title}}</text>
+    <view class="order-content content-box">
+      <view class="my-gonggao">
+        <swiper autoplay="{{true}}" vertical="{{true}}" circular="{{true}}" style="height: 40rpx;">
+          <swiper-item wx:for="{{noticeList}}" wx:key="index" class="swiper-item" bindtap="goNotice">
+            <my-icon type="gonggao" size="30" color="#aa4f53" class="icon-gonggao"/>
+            {{item.title}}
+          </swiper-item>
+        </swiper>
+      </view>
+      <view class="my-order">
+        <view class="order-item">
+          <my-icon type="dingdan" size="40" color="#000" class="icon-dingdan"/>
+          <text>我的订单</text>
         </view>
-      </swiper>
+        <view class="see-order">
+          <text>查看所有订单</text>
+          <my-icon type="xiangyou" size="28" color="#ccc" class="icon-xiangyou"/> 
+        </view>
+      </view>
+      <view class="my-poerate">
+        <view wx:for="{{myOperate}}" wx:key="index" class="operate-item">
+          <my-icon type="{{item.icon}}" size="40" color="#000" class="icon-operate"/>
+          <view>{{item.text}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="content-box my-funct">
+      <view wx:for="{{myFunct}}" wx:key="index" class="funct-item">
+        <view class="left">
+          <my-icon type="{{item.icon}}" size="40" color="#000" class="icon-operate"/>
+          <view>{{item.text}}</view>
+        </view>
+        <view class="right">
+          <view style="color: #ccc;">{{item.rightText}}</view>
+          <my-icon type="xiangyou" size="30" color="#ccc" class="icon-xiangyou"/>
+        </view>
+      </view>
     </view>
   </view>
 </view>

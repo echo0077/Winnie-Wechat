@@ -2,8 +2,21 @@
 page{
   background-color: #F8F9FC;
 }
+.mine-content{
+  font-size: 26rpx;
+  position: relative;
+}
 .mine-box{
   position: relative;
+}
+.order-content{
+  position: absolute;
+  width: 95%;
+  top: 415rpx;
+}
+.content-box{
+  background: #fff;
+  margin: 0 20rpx;
 }
 .my-header{
   width: 100%;
@@ -21,4 +34,61 @@ page{
   border-radius: 50%;
   margin-right: 20rpx;
   margin-left: 30rpx;
+}
+.my-gonggao{
+  padding: 10rpx 0;
+}
+.icon-gonggao{
+  float: left;
+  margin: 0 16rpx;
+}
+.my-order{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10rpx 0;
+}
+.order-item, .see-order{
+  display: flex;
+  margin: 0 20rpx;
+}
+.icon-dingdan{
+  margin-right: 10rpx;
+}
+.see-order{
+  color: #ccc;
+}
+.icon-xiangyou{
+  margin-top: 6rpx;
+}
+.my-poerate{
+  display: flex;
+  height: 100rpx;
+  padding: 20rpx 0;
+}
+.operate-item{
+  width: 20%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.icon-operate{
+  padding: 0 30rpx;
+}
+.my-funct{
+  margin-top: 240rpx;
+}
+.funct-item{
+  display: flex;
+  width: 100%;
+  height: 100rpx;
+  justify-content: space-between;
+  border-bottom: 1rpx solid #eee;
+}
+.left, .right{
+  display: flex;
+  align-items: center;
+}
+.right{
+  margin-right: 10rpx;
 }
